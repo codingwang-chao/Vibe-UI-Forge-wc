@@ -10,14 +10,14 @@
 
 ## 项目概述
 
-本项目包含两个设计规范的 UI playground：
+本项目包含skill内容和两个设计规范的 UI playground：
 
 | 项目 | 设计规范 | 说明 |
 |------|----------|------|
 | `devui-playground` | devui | devui风格组件的 playground  |
 | `harmony-ui-playground` | Harmony | Harmony 风格组件的 playground |
 
-## harmony-ui-playground 目录结构
+## 设计资源&生成物的项目目录结构（harmony-ui-playground 为例）
 
 ```
 harmony-ui-playground/
@@ -39,7 +39,7 @@ harmony-ui-playground/
 
 ### 使用示例
 
-向 Claude Code 输入以下 prompt 即可生成 UI 页面：
+向Agent输入以下 prompt 即可生成 UI 页面：
 
 ```
 在 harmony-ui-playground 生成一个鸿蒙风格的设置页到 app.tsx，使用 shadcn SKILL，根据 SKILL 参考并使用项目中的样式、component、blocks 资源。
@@ -53,7 +53,7 @@ harmony-ui-playground/
 
 ### 生成流程
 
-1. **分析需求** - SKILL 会分析你的需求，匹配最接近的 Block 模板
+1. **分析需求** - SKILL 会分析你的需求，执行workflow
 2. **参考资源** - 使用项目中的 design token、组件、blocks 作为参考
 3. **生成代码** - 生成符合规范的 UI 页面代码
 4. **预览验证** - 启动 storybook 预览效果
@@ -89,14 +89,9 @@ npm run dev          # 启动应用页面
 npm run storybook    # 启动组件预览（端口 6006）
 ```
 
-## 详细规范文档
+## 规范资源维护文档
 
-详细的组件规范、设计 token、预览环境等文档，请参考 `docs/` 目录：
-
-- [设计 Token](./docs/design-tokens.md)
-- [组件规范](./docs/component-spec.md)
-- [预览环境](./docs/preview-environment.md)
-- [组件列表](./docs/component-list.md)
+详细的资源维护、预览环境等文档，请参考 `docs/` 
 
 ## 相关资源
 
