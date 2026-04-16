@@ -1,0 +1,82 @@
+.accordion-nav {
+  width: 100%;
+  border: 1px solid var(--devui-dividing-line, var(--devui-line));
+  border-radius: var(--devui-border-radius-card);
+  background-color: var(--devui-base-bg);
+  padding: 12px;
+}
+
+.accordion-nav__title {
+  margin-bottom: 8px;
+  color: var(--devui-text);
+  font-size: var(--devui-font-size-card-title, 14px);
+  font-weight: var(--devui-font-title-weight, 600);
+}
+
+.accordion-nav__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.accordion-nav__list[data-depth="1"],
+.accordion-nav__list[data-depth="2"],
+.accordion-nav__list[data-depth="3"] {
+  margin-left: 10px;
+  border-left: 1px dashed var(--devui-dividing-line, var(--devui-line));
+  padding-left: 10px;
+}
+
+.accordion-nav__item + .accordion-nav__item {
+  margin-top: 6px;
+}
+
+.accordion-nav__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.accordion-nav__toggle,
+.accordion-nav__toggle-placeholder {
+  display: inline-flex;
+  height: 20px;
+  width: 20px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--devui-border-radius, 4px);
+}
+
+.accordion-nav__toggle {
+  border: 1px solid var(--devui-dividing-line, var(--devui-line));
+  background-color: var(--devui-area);
+  color: var(--devui-text);
+}
+
+.accordion-nav__label {
+  width: 100%;
+  border: 0;
+  border-radius: var(--devui-border-radius, 4px);
+  background: transparent;
+  color: var(--devui-text);
+  cursor: pointer;
+  font-size: var(--devui-font-size, 14px);
+  line-height: 1.5;
+  padding: 4px 8px;
+  text-align: left;
+}
+
+.accordion-nav__label:hover {
+  background-color: var(--devui-list-item-hover-bg, var(--devui-area));
+}
+
+.accordion-nav__label--active {
+  background-color: color-mix(in srgb, var(--devui-primary) 14%, transparent);
+  color: var(--devui-primary);
+}
+
+.accordion-nav__empty {
+  color: var(--devui-aide-text);
+  font-size: 13px;
+  padding: 8px;
+}

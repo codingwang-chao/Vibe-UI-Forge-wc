@@ -1,0 +1,41 @@
+{
+  "name": "@harmony",
+  "blocks": [
+    {
+      "name": "health-clover",
+      "type": "registry:block",
+      "description": "健康三叶草页面 - 展示每日健康任务进度",
+      "registry": "@harmony",
+      "files": [
+        { "path": "src/blocks/health-clover.tsx" }
+      ],
+      "dependencies": [
+        "status-bar", "title-bar", "clover-week-panel", "task-card", "button"
+      ]
+    },
+    {
+      "name": "medication",
+      "type": "registry:block",
+      "description": "服药提醒页面 - 浮层卡片列表展示",
+      "registry": "@harmony",
+      "files": [
+        { "path": "src/blocks/medication.tsx" }
+      ],
+      "dependencies": [
+        "status-bar", "float-layer", "service-card", "service-card-status", "service-card-item"
+      ]
+    },
+    {
+      "name": "water-settings",
+      "type": "registry:block",
+      "description": "喝水设置页面 - 设置项列表与开关控制",
+      "registry": "@harmony",
+      "files": [
+        { "path": "src/blocks/water-settings.tsx" }
+      ],
+      "dependencies": [
+        "status-bar", "title-bar", "list", "list-item", "switch"
+      ]
+    }
+  ]
+}

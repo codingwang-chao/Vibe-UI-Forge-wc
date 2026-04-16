@@ -1,0 +1,49 @@
+.pub-statusbar {
+  width: 360px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 24px;
+  box-sizing: border-box;
+}
+
+.pub-statusbar--light {
+  color: rgba(0, 0, 0, 0.9);
+  background: #fff;
+}
+
+.pub-statusbar--dark {
+  color: #fff;
+  background: #111;
+}
+
+.pub-statusbar__time {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: pre;
+}
+
+.pub-statusbar__left,
+.pub-statusbar__right {
+  display: inline-flex;
+  align-items: center;
+}
+
+.pub-statusbar__right {
+  width: 96px;
+  height: 13px;
+  justify-content: flex-end;
+}
+
+.pub-statusbar__right-icon {
+  width: 96px;
+  height: 13px;
+  display: block;
+  object-fit: contain;
+}
+
+.pub-statusbar--dark .pub-statusbar__right-icon {
+  filter: invert(1);
+}

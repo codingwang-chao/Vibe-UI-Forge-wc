@@ -1,4 +1,4 @@
-# wundt-shadcn
+# Vibe UI Forge ｜ 符合特定设计规范的UI生成工具
 
 本项目提供了一套基于 shadcn/ui 的 UI 开发工作流，让人可以使用 shadcn SKILL，结合项目中的设计规范资源，生成符合规范的 UI 界面。
 

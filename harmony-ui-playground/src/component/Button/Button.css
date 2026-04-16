@@ -1,0 +1,140 @@
+.my-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background-color: var(--my-btn-bg, var(--devui-primary));
+  color: var(--my-btn-color, var(--devui-light-text));
+  cursor: pointer;
+  user-select: none;
+  font-size: 14px;
+  transition:
+    opacity 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.my-btn--default {
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.9);
+  border-color: transparent;
+}
+
+.my-btn--danger {
+  background-color: var(--devui-danger);
+}
+
+.my-btn--success {
+  background-color: var(--devui-success);
+}
+
+.my-btn--info {
+  background-color: var(--devui-btn-common-bg);
+  color: var(--devui-info);
+  border-color: var(--devui-btn-common-border-color);
+}
+
+.my-btn--plain {
+  background-color: transparent;
+  border-width: 2px;
+}
+
+.my-btn--plain.my-btn--primary {
+  border-color: var(--devui-primary);
+  color: var(--devui-primary);
+}
+
+.my-btn--plain.my-btn--danger {
+  border-color: var(--devui-danger);
+  color: var(--devui-danger);
+}
+
+.my-btn--plain.my-btn--default,
+.my-btn--plain.my-btn--info {
+  border-color: var(--devui-btn-common-border-color);
+  color: var(--devui-info);
+}
+
+.my-btn--small {
+  height: 28px;
+  min-width: 72px;
+  padding: 4px 8px;
+  border-radius: 14px;
+  font-size: 14px;
+}
+
+.my-btn--large {
+  height: 40px;
+  min-width: 120px;
+  padding: 9px 16px;
+  border-radius: 20px;
+  font-size: 16px;
+}
+
+.my-btn--plain.my-btn--large:focus-visible::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  border: 2px solid var(--devui-primary);
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+.my-btn--round {
+  border-radius: 999px;
+}
+
+.my-btn--block {
+  display: flex;
+  align-self: stretch;
+  width: 100%;
+}
+
+.my-btn--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.my-btn--loading {
+  cursor: default;
+  gap: 8px;
+}
+
+.my-btn:active {
+  opacity: 0.8;
+}
+
+.my-btn__text {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-btn__loading {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-top-color: rgba(255, 255, 255, 1);
+  border-radius: 50%;
+  animation: my-btn-spin 0.8s linear infinite;
+}
+
+@keyframes my-btn-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+

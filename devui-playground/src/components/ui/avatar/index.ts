@@ -1,0 +1,7 @@
+export * from "./avatar-types"
+export * from "./avatar"
+export * from "./avatar-body-icon"
+export * from "./avatar-nobody-icon"
+export * from "./icon-body"
+export * from "./icon-nobody"
+export { Avatar as default } from "./avatar"

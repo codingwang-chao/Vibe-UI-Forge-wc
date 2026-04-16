@@ -1,0 +1,19 @@
+.avatar {
+  display: inline-block;
+}
+
+.avatar--style {
+  display: inline-block;
+  text-align: center;
+  color: #ffffff;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.avatar--background-0 {
+  background-color: #ff8b87;
+}
+
+.avatar--background-1 {
+  background-color: #7693f5;
+}

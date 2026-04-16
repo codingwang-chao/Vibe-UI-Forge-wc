@@ -1,0 +1,202 @@
+.devui-switch {
+  display: inline-flex;
+  align-items: center;
+  width: calc(32px * 1.4);
+  height: 32px;
+  font-size: 0;
+  vertical-align: middle;
+}
+
+.devui-switch,
+.devui-switch * {
+  box-sizing: border-box;
+}
+
+.devui-switch__wrapper {
+  width: 100%;
+  height: 62.5%;
+  border-radius: 9999px;
+  background: var(--switch-track-off, #d9e1ec);
+  border: 1px solid var(--switch-border-off, #c7d2e0);
+  position: relative;
+  display: inline-block;
+  overflow: visible;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  vertical-align: bottom;
+  transition: 300ms ease-in-out all;
+}
+
+.devui-switch__wrapper:not(.devui-switch--checked):hover {
+  background-color: var(--switch-track-off-hover, #c8d3e1);
+  border-color: var(--switch-track-off-hover, #c8d3e1);
+}
+
+.devui-switch__wrapper:active {
+  border-color: var(--switch-track-on-active, #1d4ed8);
+}
+
+.devui-switch__inner-wrapper {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  padding-left: 14px;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+.devui-switch__inner {
+  display: block;
+  color: var(--switch-text, #ffffff);
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+  user-select: none;
+}
+
+.devui-switch__wrapper small {
+  width: 16px;
+  height: 16px;
+  background: var(--switch-knob, #ffffff);
+  border-radius: 9999px;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  transition: 150ms ease-in-out all;
+  pointer-events: none;
+}
+
+.devui-switch__wrapper small.mouseDown {
+  width: 19px;
+}
+
+.devui-switch__wrapper.devui-switch--checked .devui-switch__inner-wrapper {
+  padding-left: 0;
+  padding-right: 14px;
+}
+
+.devui-switch__wrapper.devui-switch--checked small {
+  background: var(--switch-knob, #ffffff);
+  left: 26px;
+}
+
+.devui-switch__wrapper.devui-switch--checked small.mouseDown {
+  left: 23px;
+}
+
+.devui-switch--lg {
+  width: calc(40px * 1.4);
+  height: 40px;
+}
+
+.devui-switch--lg .devui-switch__wrapper {
+  height: 64%;
+}
+
+.devui-switch--lg .devui-switch__inner-wrapper {
+  padding-left: 24px;
+  font-size: 18px;
+}
+
+.devui-switch--lg .devui-switch__wrapper.devui-switch--checked .devui-switch__inner-wrapper {
+  padding-left: 0;
+  padding-right: 24px;
+}
+
+.devui-switch--lg .devui-switch__wrapper small {
+  width: 22px;
+  height: 22px;
+}
+
+.devui-switch--lg .devui-switch__wrapper small.mouseDown {
+  width: 26px;
+}
+
+.devui-switch--lg .devui-switch__wrapper.devui-switch--checked small {
+  left: 31px;
+}
+
+.devui-switch--lg .devui-switch__wrapper.devui-switch--checked small.mouseDown {
+  left: 28px;
+}
+
+.devui-switch--sm {
+  width: calc(24px * 1.4);
+  height: 24px;
+}
+
+.devui-switch--sm .devui-switch__wrapper {
+  height: 66%;
+}
+
+.devui-switch--sm .devui-switch__inner-wrapper {
+  line-height: 1;
+  padding-left: 12px;
+  font-size: 12px;
+}
+
+.devui-switch--sm .devui-switch__wrapper.devui-switch--checked .devui-switch__inner-wrapper {
+  padding-left: 0;
+  padding-right: 18px;
+}
+
+.devui-switch--sm .devui-switch__wrapper small {
+  width: 12px;
+  height: 12px;
+}
+
+.devui-switch--sm .devui-switch__wrapper small.mouseDown {
+  width: 14px;
+}
+
+.devui-switch--sm .devui-switch__wrapper.devui-switch--checked small {
+  left: 19px;
+}
+
+.devui-switch--sm .devui-switch__wrapper.devui-switch--checked small.mouseDown {
+  left: 17px;
+}
+
+.devui-switch__wrapper.devui-switch--checked {
+  background: var(--switch-track-on, #5b7cff);
+  border-color: var(--switch-track-on, #5b7cff);
+}
+
+.devui-switch__wrapper.devui-switch--checked:hover {
+  background: var(--switch-track-on-hover, #3e68f0);
+  border-color: var(--switch-track-on-hover, #3e68f0);
+}
+
+.devui-switch__wrapper.devui-switch--checked:active {
+  background: var(--switch-track-on-active, #3554cc);
+  border-color: var(--switch-track-on-active, #3554cc);
+}
+
+.devui-switch > .devui-switch--disabled,
+.devui-switch > .devui-switch--disabled:hover,
+.devui-switch > .devui-switch--disabled:active,
+.devui-switch > .devui-switch--disabled.devui-switch--checked {
+  cursor: not-allowed;
+}
+
+.devui-switch > .devui-switch--disabled,
+.devui-switch > .devui-switch--disabled:hover,
+.devui-switch > .devui-switch--disabled:active {
+  background-color: var(--switch-track-disabled, #d8dee8);
+  border-color: var(--switch-track-disabled, #d8dee8);
+}
+
+.devui-switch > .devui-switch--disabled small {
+  background-color: var(--switch-knob-disabled, #f4f7fb);
+}
+
+.devui-switch > .devui-switch--disabled.devui-switch--checked {
+  background-color: var(--switch-track-disabled-on, #aeb8ca);
+  border-color: var(--switch-track-disabled-on, #aeb8ca);
+}
+
+.devui-switch > .devui-switch--disabled.devui-switch--checked small {
+  background-color: var(--switch-knob, #ffffff);
+}

@@ -1,0 +1,190 @@
+:root {
+  color-scheme: light;
+
+  /* Harmony foundation */
+  --devui-global-bg: #f7f8fa;
+  --devui-glass-morphism-bg: rgba(247, 248, 250, 0.92);
+  --devui-glass-morphism-floating-container-bg: rgba(255, 255, 255, 0.94);
+  --devui-global-bg-normal: #ffffff;
+  --devui-base-bg: #ffffff;
+  --devui-base-bg-dark: #1a1a1a;
+
+  --devui-brand: #0a59f7;
+  --devui-brand-foil: rgba(10, 89, 247, 0.06);
+  --devui-brand-hover: #328bfb;
+  --devui-brand-active: #2758ee;
+  --devui-brand-active-focus: #003ebd;
+
+  --devui-primary: #0a59f7;
+  --devui-primary-hover: #328bfb;
+  --devui-primary-active: #2758ee;
+  --devui-primary-disabled: rgba(10, 89, 247, 0.28);
+
+  --devui-contrast: #ff4d4f;
+  --devui-contrast-hover: #ff7875;
+  --devui-contrast-active: #d9363e;
+
+  --devui-text: rgba(0, 0, 0, 0.9);
+  --devui-text-weak: rgba(0, 0, 0, 0.75);
+  --devui-aide-text: rgba(0, 0, 0, 0.6);
+  --devui-aide-text-hover: rgba(0, 0, 0, 0.72);
+  --devui-aide-text-stress: rgba(0, 0, 0, 0.45);
+  --devui-placeholder: rgba(0, 0, 0, 0.4);
+  --devui-light-text: #ffffff;
+  --devui-dark-text: rgba(0, 0, 0, 0.9);
+
+  --devui-link: #1989fa;
+  --devui-link-active: #0a59f7;
+  --devui-link-light: #46a3ff;
+  --devui-link-light-active: #0a59f7;
+
+  --devui-line: rgba(0, 0, 0, 0.08);
+  --devui-dividing-line: rgba(0, 0, 0, 0.08);
+  --devui-block: #ffffff;
+  --devui-area: rgba(0, 0, 0, 0.05);
+
+  --devui-danger: #f52929;
+  --devui-warning: #f59429;
+  --devui-waiting: #7b8cff;
+  --devui-success: #07c160;
+  --devui-info: #007dff;
+  --devui-initial: #edf2fc;
+  --devui-unavailable: #f2f3f5;
+
+  --devui-shadow: rgba(0, 0, 0, 0.1);
+  --devui-light-shadow: rgba(0, 0, 0, 0.06);
+  --devui-connected-overlay-shadow: rgba(0, 0, 0, 0.12);
+  --devui-feedback-overlay-shadow: rgba(0, 0, 0, 0.16);
+  --devui-hover-shadow: rgba(0, 0, 0, 0.14);
+
+  --devui-icon-text: rgba(0, 0, 0, 0.6);
+  --devui-icon-bg: #ffffff;
+  --devui-icon-fill: rgba(0, 0, 0, 0.6);
+  --devui-icon-fill-weak: rgba(0, 0, 0, 0.4);
+  --devui-icon-fill-hover: rgba(0, 0, 0, 0.9);
+  --devui-icon-fill-active: #0a59f7;
+  --devui-icon-fill-active-hover: #084ed8;
+  --devui-shape-icon-fill: rgba(0, 0, 0, 0.18);
+  --devui-shape-icon-fill-hover: rgba(0, 0, 0, 0.3);
+  --devui-shape-icon-fill-active: rgba(0, 0, 0, 0.38);
+  --devui-shape-icon-fill-disabled: rgba(0, 0, 0, 0.08);
+
+  --devui-form-control-line: #e1e2e6;
+  --devui-form-control-bg: #ffffff;
+  --devui-form-control-line-hover: #c8c9cc;
+  --devui-form-control-line-active: #0a59f7;
+  --devui-form-control-interactive-outline: rgba(10, 89, 247, 0.18);
+  --devui-form-control-line-active-hover: #084ed8;
+
+  --devui-list-item-active-bg: rgba(10, 89, 247, 0.1);
+  --devui-list-item-active-text: rgba(0, 0, 0, 0.9);
+  --devui-list-item-active-hover-bg: rgba(10, 89, 247, 0.12);
+  --devui-list-item-hover-bg: rgba(0, 0, 0, 0.0470588244497776);
+  --devui-list-item-hover-text: rgba(0, 0, 0, 0.9);
+  --devui-list-item-selected-bg: rgba(10, 89, 247, 0.12);
+  --devui-list-item-strip-bg: #edf2fc;
+
+  --devui-disabled-bg: #f2f3f5;
+  --devui-disabled-line: rgba(0, 0, 0, 0.08);
+  --devui-disabled-text: rgba(0, 0, 0, 0.4);
+  --devui-icon-fill-active-disabled: rgba(10, 89, 247, 0.32);
+
+  --devui-label-bg: rgba(10, 89, 247, 0.06);
+  --devui-connected-overlay-bg: #ffffff;
+  --devui-connected-overlay-line: #0a59f7;
+  --devui-fullscreen-overlay-bg: #ffffff;
+  --devui-feedback-overlay-bg: rgba(0, 0, 0, 0.72);
+  --devui-feedback-overlay-text: #ffffff;
+
+  --devui-embed-search-bg: rgba(0, 0, 0, 0.0470588244497776);
+  --devui-embed-search-bg-hover: rgba(0, 0, 0, 0.08);
+  --devui-float-block-shadow: rgba(10, 89, 247, 0.24);
+  --devui-highlight-overlay: rgba(255, 255, 255, 0.85);
+  --devui-range-item-hover-bg: rgba(10, 89, 247, 0.06);
+
+  --devui-gray-form-control-bg: #f5f6f7;
+  --devui-gray-form-control-hover-bg: #edf0f3;
+  --devui-nav-expand-bg: #ffffff;
+
+  --devui-danger-line: #f66f6a;
+  --devui-danger-bg: rgba(245, 41, 41, 0.06);
+  --devui-warning-line: #ed6f21;
+  --devui-warning-bg: rgba(245, 148, 41, 0.06);
+  --devui-info-line: #007dff;
+  --devui-info-bg: rgba(0, 125, 255, 0.12);
+  --devui-success-line: #07c160;
+  --devui-success-bg: #f0f9eb;
+  --devui-primary-line: #0a59f7;
+  --devui-primary-bg: rgba(10, 89, 247, 0.06);
+  --devui-default-line: rgba(0, 0, 0, 0.08);
+  --devui-default-bg: #f5f6f7;
+
+  --devui-shadow-length-base: 0 1px 0;
+  --devui-shadow-length-slide-left: -2px 0 8px;
+  --devui-shadow-length-slide-right: 2px 0 8px;
+  --devui-shadow-length-connected-overlay: 0 4px 16px;
+  --devui-shadow-length-hover: 0 8px 24px;
+  --devui-shadow-length-feedback-overlay: 0 8px 24px;
+  --devui-shadow-length-fullscreen-overlay: 0 10px 30px;
+
+  --devui-border-radius: 4px;
+  --devui-border-radius-feedback: 6px;
+  --devui-border-radius-card: 20px;
+  --devui-border-radius-full: 999px;
+
+  --devui-font-size: 14px;
+  --devui-font-size-card-title: 16px;
+  --devui-font-size-page-title: 20px;
+  --devui-font-size-modal-title: 18px;
+  --devui-font-size-price: 20px;
+  --devui-font-size-data-overview: 24px;
+  --devui-font-size-icon: 16px;
+  --devui-font-size-sm: 12px;
+  --devui-font-size-md: 14px;
+  --devui-font-size-lg: 16px;
+
+  --devui-font-title-weight: 700;
+  --devui-font-content-weight: 400;
+  --devui-line-height-base: 1.5;
+
+  --devui-animation-ease-in-smooth: cubic-bezier(0.4, 0, 1, 1);
+  --devui-animation-duration-slow: 300ms;
+  --devui-animation-duration-base: 200ms;
+  --devui-animation-duration-fast: 120ms;
+  --devui-animation-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --devui-animation-ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --devui-animation-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --devui-animation-ease-in-out-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --devui-animation-linear: linear;
+
+  --devui-z-index-full-page-overlay: 1080;
+  --devui-z-index-pop-up: 1060;
+  --devui-z-index-dropdown: 1052;
+  --devui-z-index-modal: 1050;
+  --devui-z-index-drawer: 1040;
+  --devui-z-index-framework: 1000;
+
+  --devui-table-column-shadow-color: rgba(0, 0, 0, 0.08);
+
+  --devui-btn-sm-padding: 0 12px;
+  --devui-btn-padding: 0 16px;
+  --devui-btn-lg-padding: 0 20px;
+  --devui-btn-common-bg: #f5f6f7;
+  --devui-btn-common-bg-disabled: #f2f3f5;
+  --devui-btn-common-border-color: #e1e2e6;
+  --devui-btn-common-bg-hover: #edf0f3;
+  --devui-btn-common-color-hover: rgba(0, 0, 0, 0.9);
+  --devui-btn-common-border-color-hover: #c8c9cc;
+  --devui-btn-common-bg-active: #e4e7ec;
+  --devui-btn-common-color-active: rgba(0, 0, 0, 0.9);
+  --devui-btn-common-border-color-active: #c8c9cc;
+  --devui-btn-common-border-disabled: rgba(0, 0, 0, 0.08);
+
+  --devui-icon-hover-bg: rgba(0, 0, 0, 0.08);
+  --devui-icon-active-bg: rgba(0, 0, 0, 0.12);
+
+  --devui-font-family-sans:
+    "HarmonyOS Sans SC", "HarmonyOS Sans", "PingFang SC", "Microsoft YaHei",
+    "Source Han Sans CN", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+    Arial, sans-serif;
+}

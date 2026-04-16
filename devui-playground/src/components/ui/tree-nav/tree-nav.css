@@ -1,0 +1,65 @@
+.tree-nav {
+  width: 100%;
+  border: 1px solid var(--devui-dividing-line, var(--devui-line));
+  border-radius: var(--devui-border-radius-card);
+  background-color: var(--devui-base-bg);
+}
+
+.tree-nav__title {
+  border-bottom: 1px solid var(--devui-dividing-line, var(--devui-line));
+  color: var(--devui-text);
+  font-size: var(--devui-font-size-card-title, 14px);
+  font-weight: var(--devui-font-title-weight, 600);
+  padding: 10px 12px;
+}
+
+.tree-nav__panel {
+  overflow: auto;
+  padding: 8px;
+}
+
+.tree-nav__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tree-nav__list[data-depth="1"],
+.tree-nav__list[data-depth="2"],
+.tree-nav__list[data-depth="3"] {
+  border-left: 1px dashed var(--devui-dividing-line, var(--devui-line));
+  margin-left: 10px;
+  padding-left: 10px;
+}
+
+.tree-nav__item + .tree-nav__item {
+  margin-top: 2px;
+}
+
+.tree-nav__node {
+  width: 100%;
+  border: 0;
+  border-radius: var(--devui-border-radius, 4px);
+  background-color: transparent;
+  color: var(--devui-text);
+  cursor: pointer;
+  font-size: var(--devui-font-size, 14px);
+  line-height: 1.5;
+  padding: 5px 8px;
+  text-align: left;
+}
+
+.tree-nav__node:hover {
+  background-color: var(--devui-list-item-hover-bg, var(--devui-area));
+}
+
+.tree-nav__node--active {
+  background-color: color-mix(in srgb, var(--devui-primary) 14%, transparent);
+  color: var(--devui-primary);
+}
+
+.tree-nav__empty {
+  color: var(--devui-aide-text);
+  font-size: 13px;
+  padding: 8px;
+}

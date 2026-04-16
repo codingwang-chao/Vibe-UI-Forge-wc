@@ -1,0 +1,61 @@
+.my-service-card-status {
+  box-sizing: border-box;
+  min-height: 28px;
+  padding: 4px 8px;
+  border-radius: 14px;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  max-width: 164px;
+}
+
+.my-service-card-status--primary {
+  background: #007dff;
+}
+
+.my-service-card-status--primary .my-service-card-status__text {
+  color: #fff;
+  min-width: 62px;
+  text-align: center;
+}
+
+.my-service-card-status--light {
+  background: #fff;
+}
+
+.my-service-card-status--light .my-service-card-status__text {
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 500;
+}
+
+.my-service-card-status__text {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.my-service-card-status__badge {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-service-card-status__badge-inner {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background: #007dff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.my-service-card-status__check {
+  display: block;
+  margin-top: 1px;
+}

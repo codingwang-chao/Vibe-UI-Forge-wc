@@ -1,0 +1,61 @@
+.sidebar-nav {
+  width: 230px;
+  border-right: 1px solid var(--devui-dividing-line, var(--devui-line));
+  background-color: var(--devui-base-bg);
+  padding: 14px 10px;
+}
+
+.sidebar-nav__title {
+  color: var(--devui-text);
+  font-size: var(--devui-font-size-card-title, 14px);
+  font-weight: var(--devui-font-title-weight, 600);
+  padding: 0 8px;
+}
+
+.sidebar-nav__subtitle {
+  color: var(--devui-aide-text);
+  font-size: 12px;
+  margin-top: 2px;
+  padding: 0 8px;
+}
+
+.sidebar-nav__list {
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+.sidebar-nav__list[data-depth="1"],
+.sidebar-nav__list[data-depth="2"],
+.sidebar-nav__list[data-depth="3"] {
+  margin-top: 2px;
+  padding-left: 10px;
+}
+
+.sidebar-nav__entry {
+  width: 100%;
+  border: 0;
+  border-radius: var(--devui-border-radius, 4px);
+  background-color: transparent;
+  color: var(--devui-text);
+  cursor: pointer;
+  font-size: var(--devui-font-size, 14px);
+  line-height: 1.5;
+  padding: 7px 10px;
+  text-align: left;
+}
+
+.sidebar-nav__entry:hover {
+  background-color: var(--devui-list-item-hover-bg, var(--devui-area));
+}
+
+.sidebar-nav__entry--active {
+  background-color: color-mix(in srgb, var(--devui-primary) 14%, transparent);
+  color: var(--devui-primary);
+}
+
+.sidebar-nav__empty {
+  color: var(--devui-aide-text);
+  font-size: 13px;
+  padding: 8px;
+}

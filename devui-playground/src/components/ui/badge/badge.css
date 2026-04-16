@@ -1,0 +1,97 @@
+.mini-devui-badge {
+  position: relative;
+  display: inline-block;
+}
+
+.mini-devui-badge__content {
+  box-sizing: border-box;
+  font-size: var(--devui-font-size-sm);
+  color: var(--devui-light-text);
+}
+
+.mini-devui-badge--count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  line-height: 16px;
+  border-radius: var(--devui-border-radius-full);
+  background: var(--devui-brand);
+  text-align: center;
+}
+
+.mini-devui-badge--danger {
+  background: var(--devui-danger);
+}
+
+.mini-devui-badge--warning {
+  background: var(--devui-warning);
+}
+
+.mini-devui-badge--waiting {
+  background: var(--devui-waiting);
+}
+
+.mini-devui-badge--success {
+  background: var(--devui-success);
+}
+
+.mini-devui-badge--info {
+  background: var(--devui-brand);
+}
+
+.mini-devui-badge--common {
+  background: var(--devui-unavailable);
+  color: var(--devui-aide-text);
+}
+
+.mini-devui-badge--top-left {
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+
+.mini-devui-badge--top-right {
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+}
+
+.mini-devui-badge--bottom-left {
+  left: 0;
+  bottom: 0;
+  transform: translate(-50%, 50%);
+}
+
+.mini-devui-badge--bottom-right {
+  right: 0;
+  bottom: 0;
+  transform: translate(50%, 50%);
+}
+
+.mini-devui-badge--fixed {
+  position: absolute;
+}
+
+.mini-devui-badge--dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.mini-devui-badge--show {
+  visibility: visible;
+  opacity: 1;
+  transition: all var(--devui-animation-duration-fast)
+    var(--devui-animation-ease-out);
+}
+
+.mini-devui-badge--hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: all var(--devui-animation-duration-fast)
+    var(--devui-animation-ease-in);
+}

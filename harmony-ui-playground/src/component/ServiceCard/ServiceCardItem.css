@@ -1,0 +1,91 @@
+.my-service-card-item {
+  box-sizing: border-box;
+  min-height: 64px;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.my-service-card-item__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+}
+
+.my-service-card-item__content {
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 64px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.my-service-card-item__icon-pill {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #46a3ff 0%, #007dff 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.my-service-card-item__main {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2px;
+  padding: 10px 0;
+}
+
+.my-service-card-item__title {
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  color: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.my-service-card-item__desc {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.my-service-card-item__meta {
+  flex-shrink: 0;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 44px;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: right;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.my-service-card-item--no-border .my-service-card-item__content {
+  border-bottom: none;
+}

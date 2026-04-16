@@ -1,0 +1,223 @@
+/* 周条整组 3286:18；三叶草 todo/done/disabled leaves，完成态勾叠在三叶草下方 */
+.my-clover-week-panel {
+  width: 328px;
+  height: 268px;
+  max-width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  padding: 0;
+}
+
+.my-clover-week-panel__week {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.day-pill {
+  position: relative;
+  width: 40px;
+  height: 76px;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 20px;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.day-pill--todo,
+.day-pill--done {
+  background: transparent;
+}
+
+.day-pill--disabled {
+  cursor: not-allowed;
+}
+
+.day-pill:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.day-pill--active:not(:disabled) {
+  background: rgba(0, 0, 0, 0.047);
+}
+
+.day-pill:focus-visible {
+  box-shadow: 0 0 0 2px rgba(25, 137, 250, 0.35);
+}
+
+.day-pill__num {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.89803922);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.day-pill__num--done {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.day-pill--disabled .day-pill__num {
+  color: rgba(0, 0, 0, 0.35);
+}
+
+.day-pill__clover {
+  position: absolute;
+  left: 8px;
+  top: 40px;
+  width: 24px;
+  height: 24px;
+  display: block;
+  pointer-events: none;
+}
+
+.day-pill__clover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* 紧挨三叶草底边：40 + 24 = 64 */
+.day-pill__check {
+  position: absolute;
+  left: 15px;
+  top: 64px;
+  width: 10px;
+  height: 8px;
+  display: block;
+  pointer-events: none;
+}
+
+.day-pill__check-img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
+
+.my-clover-week-panel__hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 8px;
+  height: 156px;
+  box-sizing: border-box;
+}
+
+.my-clover-week-panel__legend {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  margin-top: 12px;
+  height: 16px;
+  box-sizing: border-box;
+}
+
+.legend-item {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.legend-item__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-item__text {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
+}
+
+.my-clover {
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.my-clover__leaf {
+  position: absolute;
+  display: block;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+}
+
+.my-clover__leaf--br {
+  width: 50%;
+  height: 47.435897436%;
+  left: 50%;
+  top: 48.717948718%;
+}
+
+.my-clover__leaf--bl {
+  width: 50%;
+  height: 47.435897436%;
+  left: 0;
+  top: 48.717948718%;
+}
+
+.my-clover__top {
+  position: absolute;
+  left: 26.602564103%;
+  top: 3.205128205%;
+  width: 46.794871795%;
+  height: 53.205128205%;
+  overflow: hidden;
+}
+
+.my-clover__leaf--top {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.my-clover__stem {
+  position: absolute;
+  width: 15.384%;
+  height: 15.967%;
+  left: 42.466%;
+  top: 76.457%;
+}

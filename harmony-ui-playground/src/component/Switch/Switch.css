@@ -1,0 +1,71 @@
+/* Pixso 1:10244 / 3281:4 — 无描边；1:10253 / 1:10223 — 外圈描边与轨道有间距（borderGap） */
+:where(.my-switch) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  vertical-align: middle;
+  line-height: 0;
+}
+
+:where(.my-switch:focus-visible:not(.my-switch--border) .my-switch__track) {
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--my-switch-active, #1989fa) 35%, transparent);
+}
+
+:where(.my-switch--border:focus-visible) {
+  outline: 2px solid color-mix(in srgb, var(--my-switch-active, #1989fa) 35%, transparent);
+  outline-offset: 2px;
+}
+
+:where(.my-switch--disabled) {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+:where(.my-switch--border) {
+  padding: var(--my-switch-border-gap);
+  border-radius: calc(12px + var(--my-switch-border-gap));
+  box-shadow: 0 0 0 var(--my-switch-border-width) var(--my-switch-border-color);
+}
+
+:where(.my-switch__track) {
+  position: relative;
+  width: 36px;
+  height: 20px;
+  border-radius: 12px;
+  background: var(--my-switch-inactive, rgba(0, 0, 0, 0.09803921729326248));
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+:where(.my-switch--on .my-switch__track) {
+  background: var(--my-switch-active, #1989fa);
+}
+
+:where(.my-switch__knob) {
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--my-switch-node, #fff);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  transform: translateX(0);
+}
+
+:where(.my-switch--on .my-switch__knob) {
+  transform: translateX(16px);
+}
+

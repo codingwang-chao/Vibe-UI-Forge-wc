@@ -1,0 +1,57 @@
+.table-shell-frame {
+  display: flex;
+  min-height: 420px;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--devui-dividing-line, var(--devui-line));
+  border-radius: var(--devui-border-radius-card);
+  background-color: var(--devui-base-bg);
+}
+
+.table-shell-frame__header {
+  border-bottom: 1px solid var(--devui-dividing-line, var(--devui-line));
+  background-color: var(--devui-area);
+  padding: 12px 16px;
+}
+
+.table-shell-frame__body {
+  display: grid;
+  min-height: 0;
+  flex: 1;
+  grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+}
+
+.table-shell-frame__primary-nav {
+  min-height: 0;
+  overflow: auto;
+  border-right: 1px solid var(--devui-dividing-line, var(--devui-line));
+  background-color: var(--devui-base-bg);
+  padding: 16px;
+}
+
+.table-shell-frame__content {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  gap: 12px;
+  overflow: auto;
+  background-color: var(--devui-global-bg);
+  padding: 16px;
+}
+
+@media (max-width: 768px) {
+  .table-shell-frame {
+    min-height: auto;
+  }
+
+  .table-shell-frame__body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .table-shell-frame__primary-nav {
+    border-right: 0;
+    border-bottom: 1px solid var(--devui-dividing-line, var(--devui-line));
+  }
+}

@@ -1,0 +1,555 @@
+import { useMemo, useState } from "react"
+import { Avatar } from "@/components/ui/avatar"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Select } from "@/components/ui/select"
+import { Switch } from "@/components/ui/switch"
+import {
+  Bell,
+  ChevronDown,
+  ChevronRight,
+  CircleHelp,
+  Copy,
+  FolderTree,
+  Grid3X3,
+  LayoutGrid,
+  LayoutList,
+  Menu,
+  Plus,
+  Search,
+  Star,
+} from "lucide-react"
+
+type ViewMode = "list" | "tree" | "grid"
+type PriorityLevel = "高" | "中" | "低"
+type WorkStatus = "未开始" | "开发中" | "已完成"
+type WorkTag = "Bug" | "Epic" | "Feature" | "Story" | "Task"
+
+type WorkItem = {
+  id: number
+  title: string
+  tag: WorkTag
+  priority: PriorityLevel
+  module: "产品运营" | "基础服务" | "前端"
+  status: WorkStatus
+  dueAt: string
+  owner: "liumei" | "yuhai" | "delong" | "tony" | "zhangbiao"
+  enabled: boolean
+}
+
+const breadcrumbItems = ["项目", "Furion移动客户端", "流水线", "流水线详情"]
+const tabItems = ["工程概览", "模型设计", "架构信息", "代码模型", "需求模型"]
+
+const sidebarItems = [
+  { label: "仪表盘", expandable: false },
+  { label: "工作项", expandable: true },
+  { label: "架构建模", expandable: false },
+  { label: "代码", expandable: true },
+  {
+    label: "持续交付",
+    expandable: true,
+    expanded: true,
+    children: ["流水线", "发布管理", "编译构建", "部署", "运维"],
+  },
+  { label: "制品仓库", expandable: true },
+  { label: "测试", expandable: true },
+  { label: "wiki", expandable: false },
+  { label: "文档", expandable: false },
+  { label: "设置", expandable: true },
+]
+
+const titlePool = [
+  "用户管理-无法手动设置会员级别",
+  "积分管理-无法显示积分规则界面",
+  "凤凰城",
+  "客户端",
+  "作为用户应该可以查看个人主页",
+  "配件数据库设计",
+  "作为管理员应该可以进行用户分析",
+  "配件管理",
+  "订单管理",
+  "门店网络界面没有显示省份筛选",
+  "执行机上脚本命令慢的问题",
+  "作为管理员应该可以添加团购活动",
+  "作为管理员应该可以添加优惠活动",
+  "客户端登录异常统一处理",
+  "App 端消息中心重构",
+  "支付链路回归测试",
+  "库存服务对齐接口文档",
+  "门店数据大盘优化",
+]
+
+const tagPool: WorkTag[] = ["Bug", "Epic", "Feature", "Story", "Task"]
+const priorityPool: PriorityLevel[] = ["高", "中", "低"]
+const modulePool: Array<WorkItem["module"]> = ["产品运营", "基础服务", "前端"]
+const statusPool: WorkStatus[] = ["未开始", "开发中", "已完成"]
+const ownerPool: Array<WorkItem["owner"]> = [
+  "liumei",
+  "yuhai",
+  "delong",
+  "tony",
+  "zhangbiao",
+]
+
+const initialRows: WorkItem[] = Array.from({ length: 18 }, (_, index) => ({
+  id: 1501251 + index,
+  title: titlePool[index],
+  tag: tagPool[index % tagPool.length],
+  priority: priorityPool[index % priorityPool.length],
+  module: modulePool[index % modulePool.length],
+  status: statusPool[index % statusPool.length],
+  dueAt: "2022-5-21 12:00:00",
+  owner: ownerPool[index % ownerPool.length],
+  enabled: index % 2 === 0,
+}))
+
+const tagClassMap: Record<WorkTag, string> = {
+  Bug: "bg-destructive/10 text-destructive",
+  Epic: "bg-primary/10 text-primary",
+  Feature: "bg-info/10 text-info",
+  Story: "bg-warning/20 text-warning",
+  Task: "bg-secondary text-secondary-foreground",
+}
+
+const statusClassMap: Record<WorkStatus, string> = {
+  未开始: "bg-muted text-muted-foreground",
+  开发中: "bg-primary/10 text-primary",
+  已完成: "bg-success/10 text-success",
+}
+
+const priorityClassMap: Record<PriorityLevel, string> = {
+  高: "text-destructive",
+  中: "text-warning",
+  低: "text-success",
+}
+
+function App() {
+  const [region, setRegion] = useState("cn-north-4")
+  const [consoleQuery, setConsoleQuery] = useState("")
+  const [tableQuery, setTableQuery] = useState("")
+  const [language, setLanguage] = useState("all")
+  const [advancedFilter, setAdvancedFilter] = useState("none")
+  const [activeTab, setActiveTab] = useState("工程概览")
+  const [viewMode, setViewMode] = useState<ViewMode>("list")
+  const [locale, setLocale] = useState<"中" | "EN">("中")
+  const [rows, setRows] = useState<WorkItem[]>(initialRows)
+  const [selectedIds, setSelectedIds] = useState<number[]>([])
+
+  const filteredRows = useMemo(() => {
+    const query = tableQuery.trim().toLowerCase()
+    if (!query) {
+      return rows
+    }
+    return rows.filter(
+      (item) =>
+        item.title.toLowerCase().includes(query) ||
+        item.owner.toLowerCase().includes(query) ||
+        String(item.id).includes(query)
+    )
+  }, [rows, tableQuery])
+
+  const allChecked =
+    filteredRows.length > 0 &&
+    filteredRows.every((item) => selectedIds.includes(item.id))
+
+  const toggleSelectAll = (checked: boolean) => {
+    if (!checked) {
+      setSelectedIds([])
+      return
+    }
+    setSelectedIds(filteredRows.map((item) => item.id))
+  }
+
+  const toggleRowSelection = (id: number, checked: boolean) => {
+    setSelectedIds((current) => {
+      if (checked) {
+        return current.includes(id) ? current : [...current, id]
+      }
+      return current.filter((item) => item !== id)
+    })
+  }
+
+  const toggleRowEnabled = (id: number, nextValue: boolean) => {
+    setRows((current) =>
+      current.map((item) =>
+        item.id === id ? { ...item, enabled: nextValue } : item
+      )
+    )
+  }
+
+  return (
+    <div className="min-h-svh bg-background text-foreground">
+      <header className="border-b bg-card">
+        <div className="flex h-14 items-center justify-between px-4">
+          <div className="flex items-center gap-3">
+            <Button size="icon" variant="ghost" aria-label="更多">
+              <Menu size={16} />
+            </Button>
+            <div className="flex items-center gap-2">
+              <span className="inline-flex size-8 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+                华
+              </span>
+              <span className="text-sm font-semibold">华为云</span>
+              <span className="text-sm text-muted-foreground">控制台</span>
+            </div>
+            <div className="w-52">
+              <Select
+                modelValue={region}
+                onUpdateModelValue={(value) => setRegion(String(value))}
+                options={[{ name: "华北-北京四", value: "cn-north-4" }]}
+                size="sm"
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <Input
+              modelValue={consoleQuery}
+              onUpdateModelValue={setConsoleQuery}
+              placeholder="搜索服务、资源、项目"
+              prefix={<Search size={14} className="text-muted-foreground" />}
+              className="w-72"
+              size="sm"
+            />
+            <Button size="icon" variant="ghost" aria-label="添加">
+              <Plus size={16} />
+            </Button>
+            <Button size="icon" variant="ghost" aria-label="应用">
+              <LayoutGrid size={16} />
+            </Button>
+            <Button size="icon" variant="ghost" aria-label="通知">
+              <Bell size={16} />
+            </Button>
+            <Badge count={8} status="danger">
+              <Button size="icon" variant="ghost" aria-label="待办">
+                <LayoutList size={16} />
+              </Button>
+            </Badge>
+            <Button size="icon" variant="ghost" aria-label="帮助">
+              <CircleHelp size={16} />
+            </Button>
+            <Button
+              size="sm"
+              variant="outline"
+              onClick={() =>
+                setLocale((current) => (current === "中" ? "EN" : "中"))
+              }
+            >
+              {locale}
+            </Button>
+            <Avatar name="RL" width={32} height={32} />
+          </div>
+        </div>
+      </header>
+
+      <div className="flex min-h-[calc(100svh-56px)]">
+        <aside className="w-64 border-r bg-card p-3">
+          <div className="mb-3 text-xs text-muted-foreground">
+            研发全生命周期
+          </div>
+          <nav className="flex flex-col gap-1">
+            {sidebarItems.map((item) => {
+              const isExpanded = Boolean(item.expanded)
+              const isCurrentGroup = item.label === "持续交付"
+
+              return (
+                <div key={item.label} className="flex flex-col gap-1">
+                  <button
+                    type="button"
+                    className="flex h-9 items-center justify-between rounded-md px-2 text-sm text-foreground hover:bg-accent"
+                  >
+                    <span>{item.label}</span>
+                    {item.expandable ? (
+                      <ChevronDown
+                        size={14}
+                        className={isExpanded ? "rotate-0" : "-rotate-90"}
+                      />
+                    ) : null}
+                  </button>
+
+                  {isCurrentGroup && isExpanded ? (
+                    <div className="ml-2 flex flex-col gap-1 border-l pl-2">
+                      {item.children?.map((child) => (
+                        <button
+                          key={child}
+                          type="button"
+                          className={
+                            child === "流水线"
+                              ? "flex h-8 items-center rounded-md bg-primary/10 px-2 text-left text-sm text-primary"
+                              : "flex h-8 items-center rounded-md px-2 text-left text-sm text-muted-foreground hover:bg-accent"
+                          }
+                        >
+                          {child}
+                        </button>
+                      ))}
+                    </div>
+                  ) : null}
+                </div>
+              )
+            })}
+          </nav>
+        </aside>
+
+        <main className="flex min-w-0 flex-1 flex-col gap-4 p-4">
+          <nav className="flex items-center gap-1 text-sm text-muted-foreground">
+            {breadcrumbItems.map((item, index) => (
+              <div key={item} className="flex items-center gap-1">
+                <span
+                  className={
+                    index === breadcrumbItems.length - 1
+                      ? "text-foreground"
+                      : ""
+                  }
+                >
+                  {item}
+                </span>
+                {index < breadcrumbItems.length - 1 ? (
+                  <ChevronRight size={14} />
+                ) : null}
+              </div>
+            ))}
+          </nav>
+
+          <section className="rounded-lg border bg-card p-2">
+            <div className="flex flex-wrap items-center gap-2">
+              {tabItems.map((item) => (
+                <Button
+                  key={item}
+                  size="sm"
+                  variant={item === activeTab ? "default" : "ghost"}
+                  onClick={() => setActiveTab(item)}
+                >
+                  {item}
+                </Button>
+              ))}
+            </div>
+          </section>
+
+          <section className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-lg border bg-card">
+            <div className="flex flex-wrap items-center gap-3 border-b px-4 py-3">
+              <Button>新建需求</Button>
+
+              <div className="w-36">
+                <Select
+                  modelValue={language}
+                  onUpdateModelValue={(value) => setLanguage(String(value))}
+                  options={[
+                    { name: "所有语言", value: "all" },
+                    { name: "中文", value: "zh-CN" },
+                    { name: "English", value: "en-US" },
+                  ]}
+                  size="sm"
+                />
+              </div>
+
+              <Input
+                modelValue={tableQuery}
+                onUpdateModelValue={setTableQuery}
+                placeholder="点击此处添加筛选条件"
+                prefix={<Search size={14} className="text-muted-foreground" />}
+                size="sm"
+                className="w-80"
+              />
+
+              <div className="w-40">
+                <Select
+                  modelValue={advancedFilter}
+                  onUpdateModelValue={(value) =>
+                    setAdvancedFilter(String(value))
+                  }
+                  options={[
+                    { name: "高级筛选", value: "none" },
+                    { name: "优先级", value: "priority" },
+                    { name: "处理者", value: "owner" },
+                    { name: "状态", value: "status" },
+                  ]}
+                  size="sm"
+                />
+              </div>
+
+              <div className="ml-auto flex items-center gap-1 rounded-md border px-1 py-1">
+                <Button
+                  size="icon-sm"
+                  variant={viewMode === "list" ? "default" : "ghost"}
+                  onClick={() => setViewMode("list")}
+                  aria-label="列表"
+                >
+                  <LayoutList size={14} />
+                </Button>
+                <Button
+                  size="icon-sm"
+                  variant={viewMode === "tree" ? "default" : "ghost"}
+                  onClick={() => setViewMode("tree")}
+                  aria-label="树结构"
+                >
+                  <FolderTree size={14} />
+                </Button>
+                <Button
+                  size="icon-sm"
+                  variant={viewMode === "grid" ? "default" : "ghost"}
+                  onClick={() => setViewMode("grid")}
+                  aria-label="宫格"
+                >
+                  <Grid3X3 size={14} />
+                </Button>
+              </div>
+            </div>
+
+            <div className="min-h-0 flex-1 overflow-auto">
+              <table className="w-full min-w-[1220px] text-sm">
+                <thead className="sticky top-0 z-10 bg-muted/50 text-left">
+                  <tr className="border-b">
+                    <th className="w-12 px-3 py-3">
+                      <input
+                        type="checkbox"
+                        checked={allChecked}
+                        onChange={(event) =>
+                          toggleSelectAll(event.currentTarget.checked)
+                        }
+                        aria-label="全选"
+                      />
+                    </th>
+                    <th className="w-24 px-3 py-3">编号</th>
+                    <th className="min-w-[360px] px-3 py-3">标题</th>
+                    <th className="w-24 px-3 py-3">优先级</th>
+                    <th className="w-28 px-3 py-3">模块</th>
+                    <th className="w-24 px-3 py-3">状态</th>
+                    <th className="w-48 px-3 py-3">预计结束日期</th>
+                    <th className="w-36 px-3 py-3">处理者</th>
+                    <th className="w-36 px-3 py-3">开关</th>
+                    <th className="w-28 px-3 py-3">操作</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  {filteredRows.map((item) => {
+                    const rowChecked = selectedIds.includes(item.id)
+                    return (
+                      <tr
+                        key={item.id}
+                        className="border-b last:border-0 hover:bg-muted/30"
+                      >
+                        <td className="px-3 py-2 align-middle">
+                          <input
+                            type="checkbox"
+                            checked={rowChecked}
+                            onChange={(event) =>
+                              toggleRowSelection(
+                                item.id,
+                                event.currentTarget.checked
+                              )
+                            }
+                            aria-label={`选择 ${item.id}`}
+                          />
+                        </td>
+                        <td className="px-3 py-2 align-middle text-muted-foreground">
+                          {item.id}
+                        </td>
+                        <td className="px-3 py-2 align-middle">
+                          <div className="flex items-center gap-2">
+                            <span
+                              className={`rounded-sm px-2 py-0.5 text-xs font-medium ${tagClassMap[item.tag]}`}
+                            >
+                              {item.tag}
+                            </span>
+                            <span className="truncate" title={item.title}>
+                              {item.title}
+                            </span>
+                          </div>
+                        </td>
+                        <td className="px-3 py-2 align-middle">
+                          <span
+                            className={`inline-flex items-center gap-1 ${priorityClassMap[item.priority]}`}
+                          >
+                            <span className="inline-flex size-2 rounded-full bg-current" />
+                            {item.priority}
+                          </span>
+                        </td>
+                        <td className="px-3 py-2 align-middle">
+                          {item.module}
+                        </td>
+                        <td className="px-3 py-2 align-middle">
+                          <span
+                            className={`inline-flex rounded-md px-2 py-0.5 text-xs ${statusClassMap[item.status]}`}
+                          >
+                            {item.status}
+                          </span>
+                        </td>
+                        <td className="px-3 py-2 align-middle text-muted-foreground">
+                          {item.dueAt}
+                        </td>
+                        <td className="px-3 py-2 align-middle">
+                          <div className="flex items-center gap-2">
+                            <Avatar name={item.owner} width={24} height={24} />
+                            <span>{item.owner}</span>
+                          </div>
+                        </td>
+                        <td className="px-3 py-2 align-middle">
+                          <div className="flex items-center gap-2">
+                            <Switch
+                              modelValue={item.enabled}
+                              onUpdateModelValue={(value) =>
+                                toggleRowEnabled(item.id, Boolean(value))
+                              }
+                              size="sm"
+                            />
+                            <span className="text-xs text-muted-foreground">
+                              {item.enabled ? "开启" : "关闭"}
+                            </span>
+                          </div>
+                        </td>
+                        <td className="px-3 py-2 align-middle">
+                          <div className="flex items-center gap-1">
+                            <Button
+                              size="icon-sm"
+                              variant="ghost"
+                              aria-label={`复制 ${item.id}`}
+                            >
+                              <Copy size={14} />
+                            </Button>
+                            <Button
+                              size="icon-sm"
+                              variant="ghost"
+                              aria-label={`收藏 ${item.id}`}
+                            >
+                              <Star size={14} />
+                            </Button>
+                            <Button
+                              size="icon-sm"
+                              variant="ghost"
+                              aria-label={`更多 ${item.id}`}
+                            >
+                              <ChevronDown size={14} />
+                            </Button>
+                          </div>
+                        </td>
+                      </tr>
+                    )
+                  })}
+                </tbody>
+              </table>
+            </div>
+
+            <div className="flex items-center justify-between border-t bg-muted/30 px-4 py-3 text-sm">
+              <span className="text-muted-foreground">
+                共 {filteredRows.length} 条
+              </span>
+              <div className="flex items-center gap-2">
+                <Button size="sm" variant="outline">
+                  上一页
+                </Button>
+                <span>1 / 1</span>
+                <Button size="sm" variant="outline">
+                  下一页
+                </Button>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+  )
+}
+
+export default App

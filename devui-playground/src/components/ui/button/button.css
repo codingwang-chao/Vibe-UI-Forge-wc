@@ -1,0 +1,363 @@
+.mini-devui-button {
+  position: relative;
+  display: inline-flex;
+  min-width: 64px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: var(--devui-border-radius);
+  background: transparent;
+  padding: var(--devui-btn-padding);
+  color: var(--devui-text);
+  font-size: var(--devui-font-size-md);
+  line-height: var(--devui-line-height-base);
+  height: 32px;
+  white-space: nowrap;
+  transition:
+    background-color var(--devui-animation-duration-slow)
+      var(--devui-animation-ease-in-out-smooth),
+    border-color var(--devui-animation-duration-slow)
+      var(--devui-animation-ease-in-out-smooth),
+    color var(--devui-animation-duration-slow)
+      var(--devui-animation-ease-in-out-smooth),
+    transform var(--devui-animation-duration-fast)
+      var(--devui-animation-ease-in-out);
+}
+
+.mini-devui-button:hover:not(:disabled) {
+  cursor: pointer;
+}
+
+.mini-devui-button:disabled {
+  cursor: not-allowed;
+}
+
+.mini-devui-button--mousedown:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.mini-devui-button--is-loading {
+  pointer-events: none;
+}
+
+.mini-devui-button--solid {
+  color: var(--devui-light-text);
+}
+
+.mini-devui-button--solid--secondary {
+  border-color: var(--devui-btn-common-border-color);
+  background-color: var(--devui-btn-common-bg);
+  color: var(--devui-text);
+}
+
+.mini-devui-button--solid--secondary:hover:not(:disabled),
+.mini-devui-button--solid--secondary:focus-visible,
+.mini-devui-button--solid--secondary:active {
+  border-color: var(--devui-btn-common-border-color-hover);
+  background-color: var(--devui-btn-common-bg-hover);
+  color: var(--devui-btn-common-color-hover);
+}
+
+.mini-devui-button--solid--secondary:disabled {
+  opacity: 0.8;
+}
+
+.mini-devui-button--solid--primary {
+  background-color: var(--devui-primary);
+}
+
+.mini-devui-button--solid--primary:hover:not(:disabled),
+.mini-devui-button--solid--primary:focus-visible {
+  background-color: var(--devui-primary-hover);
+}
+
+.mini-devui-button--solid--primary:active {
+  background-color: var(--devui-primary-active);
+}
+
+.mini-devui-button--solid--primary:disabled {
+  border-color: transparent;
+  background-color: var(--devui-primary-disabled);
+  color: var(--devui-light-text);
+}
+
+.mini-devui-button--solid--danger {
+  background-color: var(--devui-contrast);
+}
+
+.mini-devui-button--solid--danger:hover:not(:disabled),
+.mini-devui-button--solid--danger:focus-visible {
+  background-color: var(--devui-contrast-hover);
+}
+
+.mini-devui-button--solid--danger:active {
+  background-color: var(--devui-contrast-active);
+}
+
+.mini-devui-button--solid--danger:disabled {
+  background-color: var(--devui-danger);
+  opacity: 0.7;
+}
+
+.mini-devui-button--outline {
+  border-style: solid;
+  background-color: var(--devui-block);
+}
+
+.mini-devui-button--outline--secondary {
+  border-color: var(--devui-line);
+  color: var(--devui-text);
+}
+
+.mini-devui-button--outline--secondary:hover:not(:disabled),
+.mini-devui-button--outline--secondary:focus-visible,
+.mini-devui-button--outline--secondary:active {
+  border-color: var(--devui-form-control-line-active);
+  color: var(--devui-brand-active);
+}
+
+.mini-devui-button--outline--secondary:disabled {
+  border-color: var(--devui-disabled-line);
+  background-color: var(--devui-disabled-bg);
+  color: var(--devui-disabled-text);
+}
+
+.mini-devui-button--outline--primary {
+  border-color: var(--devui-form-control-line-active);
+  color: var(--devui-brand-active);
+}
+
+.mini-devui-button--outline--primary:hover:not(:disabled),
+.mini-devui-button--outline--primary:focus-visible,
+.mini-devui-button--outline--primary:active {
+  border-color: var(--devui-form-control-line-active-hover);
+  color: var(--devui-brand-active-focus);
+}
+
+.mini-devui-button--outline--primary:disabled {
+  opacity: 0.8;
+}
+
+.mini-devui-button--outline--danger {
+  border-color: var(--devui-contrast);
+  color: var(--devui-contrast);
+}
+
+.mini-devui-button--outline--danger:hover:not(:disabled),
+.mini-devui-button--outline--danger:focus-visible,
+.mini-devui-button--outline--danger:active,
+.mini-devui-button--outline--danger:disabled {
+  opacity: 0.8;
+}
+
+.mini-devui-button--text {
+  min-width: 0;
+  border-color: transparent;
+  background-color: transparent;
+  padding: 0;
+}
+
+.mini-devui-button--text--secondary {
+  color: var(--devui-text);
+}
+
+.mini-devui-button--text--secondary:hover:not(:disabled),
+.mini-devui-button--text--secondary:focus-visible,
+.mini-devui-button--text--secondary:active {
+  color: var(--devui-list-item-hover-text);
+}
+
+.mini-devui-button--text--secondary:disabled {
+  color: var(--devui-disabled-text);
+}
+
+.mini-devui-button--text--primary {
+  color: var(--devui-brand-active);
+}
+
+.mini-devui-button--text--primary:hover:not(:disabled) {
+  color: var(--devui-link-active);
+}
+
+.mini-devui-button--text--primary:focus-visible,
+.mini-devui-button--text--primary:active {
+  color: var(--devui-brand-active-focus);
+}
+
+.mini-devui-button--text--primary:disabled,
+.mini-devui-button--text--danger:hover:not(:disabled),
+.mini-devui-button--text--danger:focus-visible,
+.mini-devui-button--text--danger:active,
+.mini-devui-button--text--danger:disabled {
+  opacity: 0.8;
+}
+
+.mini-devui-button--text--danger {
+  color: var(--devui-contrast);
+}
+
+.mini-devui-button--sm {
+  min-width: 56px;
+  height: 28px;
+  padding: var(--devui-btn-sm-padding);
+  font-size: var(--devui-font-size-sm);
+}
+
+.mini-devui-button--lg {
+  min-width: 72px;
+  height: 36px;
+  padding: var(--devui-btn-lg-padding);
+  font-size: var(--devui-font-size-lg);
+}
+
+.mini-devui-button--round {
+  border-radius: 20px;
+}
+
+.mini-devui-button--circle {
+  border-radius: var(--devui-border-radius-full);
+}
+
+.mini-devui-button--icon-only {
+  min-width: 0;
+  padding: 4px;
+  line-height: 1;
+}
+
+.mini-devui-button--icon-only:not(.mini-devui-button--circle) {
+  border-color: transparent;
+}
+
+.mini-devui-button--icon-only.mini-devui-button--sm {
+  min-width: 28px;
+}
+
+.mini-devui-button--icon-only.mini-devui-button--lg {
+  min-width: 32px;
+}
+
+.mini-devui-button--icon-only.mini-devui-button--circle {
+  width: 32px;
+}
+
+.mini-devui-button--icon-only.mini-devui-button--circle.mini-devui-button--sm {
+  width: 28px;
+}
+
+.mini-devui-button--icon-only.mini-devui-button--circle.mini-devui-button--lg {
+  width: 36px;
+}
+
+.mini-devui-button--icon-only:not(.mini-devui-button--solid):hover:not(:disabled),
+.mini-devui-button--icon-only:not(.mini-devui-button--solid):focus-visible {
+  border-color: var(--devui-list-item-hover-bg);
+  background-color: var(--devui-list-item-hover-bg);
+}
+
+.mini-devui-button--icon-only:not(.mini-devui-button--solid):disabled {
+  background-color: var(--devui-disabled-bg);
+}
+
+.mini-devui-button__content {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mini-devui-button__icon-fix {
+  position: relative;
+  width: 1em;
+  height: 1em;
+  flex: none;
+}
+
+.mini-devui-button__icon-gap {
+  margin-right: 5px;
+}
+
+.mini-devui-button__loading {
+  margin-right: 5px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.mini-devui-button__icon-svg {
+  width: 1em;
+  height: 1em;
+  stroke-width: 2;
+}
+
+.mini-devui-button__icon-spin {
+  animation: mini-devui-button-rotate 1.5s linear infinite;
+}
+
+.mini-devui-button__wave {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: var(--devui-base-bg);
+  opacity: 0;
+  animation: mini-devui-button-wave var(--devui-animation-duration-slow)
+    var(--devui-animation-linear);
+}
+
+.mini-devui-button-group {
+  display: flex;
+}
+
+.mini-devui-button-group > * {
+  position: relative;
+}
+
+.mini-devui-button-group > *:not(:first-child),
+.mini-devui-button-group > *:not(:first-child) .mini-devui-button {
+  margin-left: -1px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.mini-devui-button-group
+  > *:not(:first-child)
+  .mini-devui-button--solid--primary {
+  margin-left: 0;
+  border-left: 1px solid var(--devui-brand-hover);
+}
+
+.mini-devui-button-group > *:not(:last-child),
+.mini-devui-button-group > *:not(:last-child) .mini-devui-button {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.mini-devui-button-group > *:hover,
+.mini-devui-button-group > *:active,
+.mini-devui-button-group > *:focus-within {
+  z-index: 1;
+}
+
+@keyframes mini-devui-button-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes mini-devui-button-wave {
+  0% {
+    width: 30px;
+    height: 30px;
+    opacity: 0.2;
+  }
+
+  100% {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+  }
+}

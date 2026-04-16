@@ -1,0 +1,40 @@
+.pub-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  padding: 0;
+  border-radius: 999px;
+  background: #f2f3f5;
+  color: #323233;
+  cursor: pointer;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.pub-iconbtn--28 {
+  width: 28px;
+  height: 28px;
+}
+
+.pub-iconbtn--32 {
+  width: 32px;
+  height: 32px;
+}
+
+.pub-iconbtn--40 {
+  width: 40px;
+  height: 40px;
+}
+
+.pub-iconbtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pub-iconbtn__img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+}

@@ -1,0 +1,112 @@
+.my-checkbox-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.my-checkbox-field--disabled {
+  cursor: not-allowed;
+}
+
+.my-checkbox {
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+
+.my-checkbox-field--large .my-checkbox {
+  width: 24px;
+  height: 24px;
+}
+
+.my-checkbox__native {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: inherit;
+}
+
+.my-checkbox-field--disabled .my-checkbox__native {
+  cursor: not-allowed;
+}
+
+.my-checkbox__native:focus,
+.my-checkbox__native:focus-visible {
+  outline: none;
+}
+
+.my-checkbox__face {
+  position: absolute;
+  left: var(--my-checkbox-inset);
+  top: var(--my-checkbox-inset);
+  z-index: 0;
+  box-sizing: border-box;
+  width: calc(100% - 2 * var(--my-checkbox-inset));
+  height: calc(100% - 2 * var(--my-checkbox-inset));
+  border-radius: 50%;
+  border: 1px solid var(--my-checkbox-unchecked-border);
+  background-color: #fff;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.my-checkbox__check {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 9px;
+  height: 9px;
+  margin-left: -4.5px;
+  margin-top: -4.5px;
+  color: #fff;
+  opacity: 0;
+  transform: scale(0.6);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  pointer-events: none;
+}
+
+.my-checkbox-field--large .my-checkbox__check {
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  margin-top: -6px;
+}
+
+.my-checkbox--checked .my-checkbox__face {
+  background-color: var(--my-checkbox-checked);
+  border-color: var(--my-checkbox-checked);
+}
+
+.my-checkbox--checked .my-checkbox__check {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.my-checkbox--disabled {
+  opacity: 0.4;
+}
+
+.my-checkbox-field--border .my-checkbox--checked {
+  box-shadow: 0 0 0 2px var(--my-checkbox-ring);
+}
+
+.my-checkbox-field__text {
+  line-height: 1.2;
+}

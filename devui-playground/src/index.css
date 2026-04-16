@@ -1,0 +1,96 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./styles/devui-tokens.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--devui-font-family-sans);
+  --font-heading: var(--devui-font-family-sans);
+  --color-background: var(--devui-global-bg);
+  --color-foreground: var(--devui-text);
+  --color-card: var(--devui-base-bg);
+  --color-card-foreground: var(--devui-text);
+  --color-popover: var(--devui-connected-overlay-bg);
+  --color-popover-foreground: var(--devui-text);
+  --color-primary: var(--devui-primary);
+  --color-primary-foreground: var(--devui-light-text);
+  --color-secondary: var(--devui-brand-foil);
+  --color-secondary-foreground: var(--devui-dark-text);
+  --color-muted: var(--devui-area);
+  --color-muted-foreground: var(--devui-aide-text);
+  --color-accent: var(--devui-list-item-hover-bg);
+  --color-accent-foreground: var(--devui-list-item-hover-text);
+  --color-destructive: var(--devui-danger);
+  --color-destructive-foreground: var(--devui-light-text);
+  --color-border: var(--devui-line);
+  --color-input: var(--devui-form-control-line);
+  --color-ring: var(--devui-form-control-line-active);
+  --color-success: var(--devui-success);
+  --color-warning: var(--devui-warning);
+  --color-info: var(--devui-info);
+  --radius-sm: var(--devui-border-radius);
+  --radius-md: var(--devui-border-radius);
+  --radius-lg: var(--devui-border-radius-card);
+  --radius-xl: var(--devui-border-radius-card);
+  --radius-2xl: var(--devui-border-radius-full);
+  --shadow-sm: var(--devui-shadow-length-base) var(--devui-light-shadow);
+  --shadow-md: var(--devui-shadow-length-base) var(--devui-shadow);
+  --shadow-lg: var(--devui-shadow-length-hover) var(--devui-hover-shadow);
+  --shadow-xl:
+    var(--devui-shadow-length-fullscreen-overlay)
+    var(--devui-feedback-overlay-shadow);
+  --shadow-overlay:
+    var(--devui-shadow-length-connected-overlay)
+    var(--devui-connected-overlay-shadow);
+  --z-index-dropdown: var(--devui-z-index-dropdown);
+  --z-index-modal: var(--devui-z-index-modal);
+  --z-index-drawer: var(--devui-z-index-drawer);
+  --z-index-overlay: var(--devui-z-index-full-page-overlay);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  *:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--ring) 30%, transparent);
+    outline-offset: 2px;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+
+    font-family: var(--devui-font-family-sans);
+    font-size: var(--devui-font-size);
+    font-weight: var(--devui-font-content-weight);
+    line-height: var(--devui-line-height-base);
+  }
+
+  html {
+    @apply bg-background font-sans;
+  }
+
+  body > * ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  body > * ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  body > * ::-webkit-scrollbar-thumb {
+    background-color: var(--devui-line);
+    border-radius: var(--devui-border-radius-full);
+  }
+
+  body > * ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--devui-placeholder);
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--primary) 18%, white);
+  }
+}

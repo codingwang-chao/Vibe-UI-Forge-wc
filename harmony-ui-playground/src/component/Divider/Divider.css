@@ -1,0 +1,83 @@
+/* Pixso 36:34893 - 水平分割线约 1px；浅灰条为版面示意，非组件必选 */
+.my-divider {
+  box-sizing: border-box;
+  width: 100%;
+  margin: var(--my-divider-margin);
+  border: 0;
+}
+
+.my-divider__rule {
+  height: 0;
+  margin: 0;
+  border: 0;
+  border-top: var(--my-divider-thickness) solid var(--my-divider-color);
+}
+
+.my-divider--dashed .my-divider__rule {
+  border-top-style: dashed;
+}
+
+.my-divider--hairline:not(.my-divider--dashed) .my-divider__rule {
+  height: var(--my-divider-thickness);
+  border-top: 0;
+  background-color: var(--my-divider-color);
+  transform: scaleY(0.5);
+  transform-origin: center top;
+}
+
+.my-divider--hairline.my-divider--dashed .my-divider__rule {
+  height: 0;
+  border-top: var(--my-divider-thickness) dashed var(--my-divider-color);
+  transform: scaleY(0.5);
+  transform-origin: center top;
+}
+
+.my-divider--with-text {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.my-divider__line {
+  flex: 1;
+  min-width: 0;
+  height: 0;
+  border: 0;
+  border-top: var(--my-divider-thickness) solid var(--my-divider-color);
+  align-self: center;
+}
+
+.my-divider--dashed .my-divider__line {
+  border-top-style: dashed;
+}
+
+.my-divider--hairline:not(.my-divider--dashed) .my-divider__line {
+  height: var(--my-divider-thickness);
+  border-top: 0;
+  background-color: var(--my-divider-color);
+  transform: scaleY(0.5);
+  transform-origin: center top;
+}
+
+.my-divider--hairline.my-divider--dashed .my-divider__line {
+  height: 0;
+  border-top: var(--my-divider-thickness) dashed var(--my-divider-color);
+  transform: scaleY(0.5);
+  transform-origin: center top;
+}
+
+.my-divider__text {
+  flex-shrink: 0;
+  padding: 0 16px;
+  color: #969799;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.my-divider--content-left .my-divider__text {
+  padding-left: 0;
+}
+
+.my-divider--content-right .my-divider__text {
+  padding-right: 0;
+}

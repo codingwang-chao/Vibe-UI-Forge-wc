@@ -1,0 +1,60 @@
+/* 稿 156×156，全部用百分比，避免 transform 占位被 overflow 裁切导致看不到图形 */
+.my-clover {
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.my-clover__leaf {
+  position: absolute;
+  display: block;
+  object-fit: fill;
+  pointer-events: none;
+  user-select: none;
+}
+
+.my-clover__leaf--br {
+  width: 50%;
+  height: 47.435897436%;
+  left: 50%;
+  top: 48.717948718%;
+}
+
+.my-clover__leaf--bl {
+  width: 50%;
+  height: 47.435897436%;
+  left: 0;
+  top: 48.717948718%;
+}
+
+.my-clover__top {
+  position: absolute;
+  left: 26.602564103%;
+  top: 3.205128205%;
+  width: 46.794871795%;
+  height: 53.205128205%;
+  overflow: hidden;
+}
+
+.my-clover__leaf--top {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+.my-clover__stem {
+  position: absolute;
+  width: 15.384%;
+  height: 15.967%;
+  left: 42.466%;
+  top: 76.457%;
+}
+
+/* 未完成稿：底部两叶略灰（降饱和 + 略压亮），与顶叶区分 */
+.my-clover--incomplete .my-clover__leaf--br,
+.my-clover--incomplete .my-clover__leaf--bl {
+  filter: saturate(0.55) brightness(0.9);
+}

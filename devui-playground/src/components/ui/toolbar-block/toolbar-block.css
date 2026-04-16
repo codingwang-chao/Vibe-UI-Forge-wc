@@ -1,0 +1,10 @@
+.toolbar-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--devui-dividing-line, var(--devui-line));
+  border-radius: var(--devui-border-radius, 4px);
+  background-color: var(--devui-base-bg);
+  padding: 8px 10px;
+}

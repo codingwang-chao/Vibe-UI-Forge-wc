@@ -1,0 +1,60 @@
+.my-message {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  z-index: 9999;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  max-width: calc(100vw - 32px);
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #edf2fc;
+  color: #606266;
+  font-size: 14px;
+  line-height: 1.4;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-10px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+  will-change: opacity, transform;
+}
+
+.my-message--visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.my-message--info {
+  background-color: #edf2fc;
+  color: #606266;
+}
+
+.my-message--success {
+  background-color: #f0f9eb;
+  color: #67c23a;
+}
+
+.my-message--warning {
+  background-color: #fdf6ec;
+  color: #e6a23c;
+}
+
+.my-message--error {
+  background-color: #fef0f0;
+  color: #f56c6c;
+}
+
+.my-message__content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: pre-wrap;
+  word-break: break-word;
+}

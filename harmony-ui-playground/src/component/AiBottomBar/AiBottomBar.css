@@ -1,0 +1,36 @@
+.pub-aibottombar {
+  width: 360px;
+  height: 28px;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+.pub-aibottombar--with-handle {
+  padding-top: 13px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.pub-aibottombar--with-dark-plate {
+  background: #111;
+}
+
+.pub-aibottombar__handle {
+  width: 112px;
+  height: 5px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.pub-aibottombar--light .pub-aibottombar__handle {
+  background-color: #00000020;
+}
+
+.pub-aibottombar--dark .pub-aibottombar__handle {
+  background-color: #ffffff50;
+}
+
+.pub-aibottombar--transparent .pub-aibottombar__handle {
+  background-color: #ffffff70;
+}
