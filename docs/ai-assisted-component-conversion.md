@@ -285,35 +285,244 @@ export { ComponentName } from "./ComponentName"
 
 ---
 
-## 修改组件流程
-
-### 修改场景
-
-1. **添加新的变体**（如新增颜色、尺寸）
-2. **修改现有变体的样式**
-3. **添加新的属性**
-4. **调整组件行为**
-
-### 修改步骤
-
-1. **明确修改需求**
-
-2. **使用AI进行修改**
-
-**AI提示词模板：**
-
-```
-修改 harmony-ui-playground/src/component/ComponentName/ComponentName.tsx：
-
-需要做的修改：
-1. [具体修改内容1]
-2. [具体修改内容2]
-
-同时需要更新：
-- ComponentName.tsx（主文件）
-- ComponentName.css（样式文件，如果涉及样式修改）
-- ComponentName.stories.tsx（Stories，添加新的示例）
-- index.ts（如果需要新的导出）
-```
-
 3. **验证修改结果**
+
+---
+
+## 文件组织与命名规范
+
+### 目录结构标准
+
+#### harmony-ui-playground
+
+```
+harmony-ui-playground/
+└── src/
+    └── component/
+        ├── Button/
+        │   ├── index.ts
+        │   ├── Button.tsx
+        │   ├── Button.css
+        │   └── Button.stories.tsx
+        └── ComponentName/
+            └── ...
+```
+
+#### devui-playground
+
+```
+devui-playground/
+└── src/
+    └── components/
+        └── ui/
+            ├── button/
+            │   ├── index.ts
+            │   ├── button.tsx
+            │   ├── button.css
+            │   └── button.stories.tsx
+            └── component-name/
+                └── ...
+```
+
+### 命名约定
+
+| 类型 | 命名规则 | 示例 |
+|------|----------|------|
+| 组件名称 | PascalCase | `Button`, `TaskCard`, `StatusBar` |
+| 组件文件 | 与组件名相同 | `Button.tsx`, `Button.css` |
+| CSS类名 | kebab-case + 前缀 | `my-button`, `task-card` |
+| 导出文件名 | index.ts | `index.ts` |
+| stories文件 | 组件名 + .stories.tsx | `Button.stories.tsx` |
+
+### CSS变量使用
+
+使用项目定义的CSS变量，不要硬编码颜色：
+
+```css
+/* ✅ 正确 */
+.my-button {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* ❌ 错误 */
+.my-button {
+  background-color: #1890ff;
+  color: #ffffff;
+}
+```
+
+### 导出方式
+
+```typescript
+// index.ts - 默认导出
+export { default as Button } from “./Button”
+// 或者
+export { Button } from “./Button”
+export { Button, buttonVariants } from “./Button”
+```
+
+---
+
+## 依赖管理
+
+### 简单的依赖管理原则
+
+1. **优先使用项目已有组件**
+   - 在创建新组件前，先检查项目中是否已有类似组件
+   - 可以复用已有组件，避免重复开发
+
+2. **组件间的依赖**
+
+   ```typescript
+   // ✅ 正确 - 使用项目已有的组件
+   import { Button } from “@/component/Button”
+   import { Icon } from “@/component/Icon”
+
+   export const MyComponent = () => {
+     return (
+       <div>
+         <Button>Click me</Button>
+         <Icon name=”check” />
+       </div>
+     )
+   }
+
+   // ❌ 错误 - 不要引入不存在的组件
+   import { NonExistentComponent } from “somewhere”
+   ```
+
+3. **检查依赖是否可用**
+
+   使用AI检查组件依赖是否存在于项目中：
+
+   **AI提示词：**
+
+   ```
+   检查以下组件在harmony-ui-playground项目中是否存在：
+   - Button
+   - Icon
+   - Switch
+
+   请告诉我这些组件的导入路径。
+   ```
+
+4. **更新registry.json**
+
+   当组件需要在blocks中使用时，确保在`registry.json`中声明依赖：
+
+   ```json
+   {
+     “name”: “@harmony”,
+     “blocks”: [
+       {
+         “name”: “my-block”,
+         “dependencies”: [“button”, “icon”, “switch”]
+       }
+     ]
+   }
+   ```
+
+---
+
+## Icon处理
+
+### 图标系统概述
+
+两个项目都使用 **Lucide React** 图标库。
+
+### 使用图标的方法
+
+#### 1. 直接导入使用（临时）
+
+```typescript
+import { Check, X, Plus } from “lucide-react”
+
+export const MyComponent = () => {
+  return (
+    <div>
+      <Check className=”size-4” />
+      <X className=”size-4” />
+      <Plus className=”size-4” />
+    </div>
+  )
+}
+```
+
+#### 2. 通过图标名称使用（需要适配层）
+
+有些项目可能有图标名称到Lucide图标的映射。如果需要这种功能，可以让AI帮你创建一个图标适配层：
+
+**AI提示词：**
+
+```
+创建一个Icon组件到harmony-ui-playground，支持通过名称使用Lucide图标：
+
+使用示例：
+<Icon name=”check” size={16} />
+<Icon name=”x” size={20} />
+
+要求：
+1. 创建src/component/Icon/目录
+2. 使用lucide-react作为图标源
+3. 支持size属性设置图标大小
+4. 支持className传递额外样式
+```
+
+### 图标大小规范
+
+| 大小 | Tailwind类名 | 像素值 |
+|------|-------------|--------|
+| 特小 | size-3 | 12px |
+| 小 | size-4 | 16px |
+| 中 | size-5 | 20px |
+| 大 | size-6 | 24px |
+
+---
+
+## 验收与检查清单
+
+### 代码质量检查
+
+- [ ] 组件文件结构完整（.tsx, .css, .stories.tsx, index.ts）
+- [ ] TypeScript接口定义清晰
+- [ ] 没有any类型（除非确实必要）
+- [ ] Props有默认值
+
+### 样式一致性检查
+
+- [ ] 使用CSS变量而非硬编码颜色
+- [ ] 遵循项目的命名规范
+- [ ] 样式与设计规范一致
+
+### Storybook检查
+
+- [ ] Playground故事正常渲染
+- [ ] 所有变体都有对应的故事
+- [ ] 所有尺寸都有对应的故事
+- [ ] 所有状态（正常、禁用等）都有展示
+
+### 构建检查
+
+在项目根目录运行：
+
+```bash
+# 1. 类型检查
+npm run type-check  # 或 npx tsc --noEmit
+
+# 2. 项目构建
+npm run build
+
+# 3. Storybook构建
+npm run build-storybook
+```
+
+- [ ] 类型检查通过
+- [ ] 项目构建成功
+- [ ] Storybook构建成功
+
+### 导出检查
+
+- [ ] index.ts正确导出组件
+- [ ] 可以通过正确路径导入组件
+- [ ] 如果组件在blocks中使用，registry.json已更新
