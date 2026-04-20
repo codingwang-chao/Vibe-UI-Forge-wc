@@ -61,7 +61,7 @@ needed_components:
    - `harmony-ui-playground/src/component/Divider/Divider.tsx`
    - `harmony-ui-playground/src/component/Divider/Divider.stories.tsx`
 
-### Generated Files (预期)
+### Generated Files (实际)
 
 - `harmony-ui-playground/src/blocks/water-settings-generated.tsx`
 - `harmony-ui-playground/src/blocks/water-settings-generated.stories.tsx`
@@ -77,6 +77,12 @@ cd harmony-ui-playground
 npm run build
 npm run build-storybook
 ```
+
+**验证结果：**
+- `npm run build`: ✓ 通过 (1.35s)
+- `npm run build-storybook`: ✓ 通过 (3.14s)
+
+### 试跑 2: 生成一个健康任务进度页
 
 ---
 
@@ -239,13 +245,20 @@ npm run build-storybook
 - [x] 所有组件都来自 `components.json`（使用 alias `@/component`）
 - [x] 所有 reference_blocks 都能在 `blocks.json` 中找到
 - [x] 所有 needed_components 都能在 `components.json` 中找到
-- [ ] 实际页面生成并通过构建（本 Phase 5 仅验证工作流，Phase 5 完成）
+- [x] 试跑 1 实际页面生成并通过构建（见下方验证结果）
 
-### 备注
+### 试跑 1 实际验证结果
 
-Phase 5 验证目标：确认 route/layout/resources 能支撑真实页面生成的工作流。
+**生成的文件：**
+- `harmony-ui-playground/src/blocks/water-settings-generated.tsx`
+- `harmony-ui-playground/src/blocks/water-settings-generated.stories.tsx`
 
-工作流验证通过：
+**构建验证：**
+- `npm run build`: ✓ 通过 (1.35s)
+- `npm run build-storybook`: ✓ 通过 (3.14s)，包含 `water-settings-generated.stories`
+
+**备注**
+- 试跑 2、3 验证了工作流路由正确，但未生成实际文件（工作流本身已验证）
 - route matching 正确路由到 page_type
 - layout resolution 正确输出 reference_blocks 和 needed_components
 - source grounding 路径解析正确
