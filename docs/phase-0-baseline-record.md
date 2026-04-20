@@ -5,7 +5,41 @@
 
 ---
 
-## 1. harmony-ui-playground/components.json
+## 1. harmony-ui-playground/registry.json
+
+```json
+{
+  "$schema": "https://ui.shadcn.com/schema.json",
+  "style": "radix-nova",
+  "rsc": false,
+  "tsx": true,
+  "tailwind": {
+    "config": "",
+    "css": "src/index.css",
+    "baseColor": "neutral",
+    "cssVariables": true,
+    "prefix": ""
+  },
+  "iconLibrary": "lucide",
+  "rtl": false,
+  "aliases": {
+    "components": "@/component",
+    "utils": "@/lib/utils",
+    "ui": "@/component",
+    "lib": "@/lib",
+    "hooks": "@/hooks"
+  },
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "registries": {
+    "@harmony": "./registry.json"
+  }
+}
+```
+
+---
+
+## 2. harmony-ui-playground/components.json
 
 ```json
 {
@@ -36,40 +70,6 @@
       "dependencies": ["status-bar", "title-bar", "list", "list-item", "switch"]
     }
   ]
-}
-```
-
----
-
-## 2. harmony-ui-playground/registry.json
-
-```json
-{
-  "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "radix-nova",
-  "rsc": false,
-  "tsx": true,
-  "tailwind": {
-    "config": "",
-    "css": "src/index.css",
-    "baseColor": "neutral",
-    "cssVariables": true,
-    "prefix": ""
-  },
-  "iconLibrary": "lucide",
-  "rtl": false,
-  "aliases": {
-    "components": "@/component",
-    "utils": "@/lib/utils",
-    "ui": "@/component",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
-  },
-  "menuColor": "default",
-  "menuAccent": "subtle",
-  "registries": {
-    "@harmony": "./registry.json"
-  }
 }
 ```
 
@@ -125,6 +125,7 @@ Output: storybook-static/
 
 ## 6. 备注
 
-- `settings-page` 存在于 `registry.json` blocks 列表中，但 `components.json` 中未列出
+- `registry.json` 是 shadcn 风格配置文件，不直接列出 blocks；真正的 blocks 清单在 `components.json`
+- `settings-page` 是独立 block 文件存在于 `src/blocks/` 目录，但未列入 `components.json` blocks 清单
 - 所有 blocks 都有对应的 `.stories.tsx` 文件
 - Build 和 Storybook build 均通过，无错误
