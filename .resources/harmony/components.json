@@ -1,0 +1,89 @@
+{
+  "$schema": "./schemas/components.schema.json",
+  "components": [
+    {
+      "id": "status-bar",
+      "name": "StatusBar",
+      "path": "src/component/StatusBar",
+      "export": "StatusBar",
+      "stories": "src/component/StatusBar/StatusBar.stories.tsx"
+    },
+    {
+      "id": "title-bar",
+      "name": "TitleBar",
+      "path": "src/component/TitleBar",
+      "export": "TitleBar",
+      "stories": "src/component/TitleBar/title-bar.stories.tsx"
+    },
+    {
+      "id": "list",
+      "name": "List",
+      "path": "src/component/List",
+      "export": "List",
+      "stories": "src/component/List/List.stories.tsx"
+    },
+    {
+      "id": "list-item",
+      "name": "ListItem",
+      "path": "src/component/List",
+      "export": "ListItem",
+      "stories": "src/component/List/List.stories.tsx"
+    },
+    {
+      "id": "switch",
+      "name": "Switch",
+      "path": "src/component/Switch",
+      "export": "Switch",
+      "stories": "src/component/Switch/Switch.stories.tsx"
+    },
+    {
+      "id": "clover-week-panel",
+      "name": "CloverWeekPanel",
+      "path": "src/component/CloverWeekPanel",
+      "export": "CloverWeekPanel",
+      "stories": "src/component/CloverWeekPanel/CloverWeekPanel.stories.tsx"
+    },
+    {
+      "id": "task-card",
+      "name": "TaskCard",
+      "path": "src/component/TaskCard",
+      "export": "TaskCard",
+      "stories": "src/component/TaskCard/TaskCard.stories.tsx"
+    },
+    {
+      "id": "button",
+      "name": "Button",
+      "path": "src/component/Button",
+      "export": "Button",
+      "stories": "src/component/Button/Button.stories.tsx"
+    },
+    {
+      "id": "float-layer",
+      "name": "FloatLayer",
+      "path": "src/component/FloatLayer",
+      "export": "FloatLayer",
+      "stories": "src/component/FloatLayer/FloatLayer.stories.tsx"
+    },
+    {
+      "id": "service-card",
+      "name": "ServiceCard",
+      "path": "src/component/ServiceCard",
+      "export": "ServiceCard",
+      "stories": "src/component/ServiceCard/ServiceCard.stories.tsx"
+    },
+    {
+      "id": "service-card-item",
+      "name": "ServiceCardItem",
+      "path": "src/component/ServiceCard",
+      "export": "ServiceCardItem",
+      "stories": "src/component/ServiceCard/ServiceCard.stories.tsx"
+    },
+    {
+      "id": "service-card-status",
+      "name": "ServiceCardStatus",
+      "path": "src/component/ServiceCard",
+      "export": "ServiceCardStatus",
+      "stories": "src/component/ServiceCard/ServiceCard.stories.tsx"
+    }
+  ]
+}

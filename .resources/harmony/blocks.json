@@ -1,0 +1,80 @@
+{
+  "$schema": "./schemas/blocks.schema.json",
+  "blocks": [
+    {
+      "id": "water-settings",
+      "name": "water-settings",
+      "pageType": "mobile-settings",
+      "description": "喝水设置页面 - 设置项列表与开关控制",
+      "files": [
+        "src/blocks/water-settings.tsx"
+      ],
+      "stories": [
+        "src/blocks/water-settings.stories.tsx"
+      ],
+      "dependencies": [
+        "status-bar",
+        "title-bar",
+        "list",
+        "list-item",
+        "switch"
+      ]
+    },
+    {
+      "id": "settings-page",
+      "name": "settings-page",
+      "pageType": "mobile-settings",
+      "description": "通用设置页",
+      "files": [
+        "src/blocks/settings-page.tsx"
+      ],
+      "stories": [
+        "src/blocks/settings-page.stories.tsx"
+      ],
+      "dependencies": [
+        "status-bar",
+        "title-bar",
+        "list",
+        "list-item"
+      ]
+    },
+    {
+      "id": "health-clover",
+      "name": "health-clover",
+      "pageType": "health-dashboard",
+      "description": "健康三叶草页面 - 展示每日健康任务进度",
+      "files": [
+        "src/blocks/health-clover.tsx"
+      ],
+      "stories": [
+        "src/blocks/health-clover.stories.tsx"
+      ],
+      "dependencies": [
+        "status-bar",
+        "title-bar",
+        "clover-week-panel",
+        "task-card",
+        "button"
+      ]
+    },
+    {
+      "id": "medication",
+      "name": "medication",
+      "pageType": "mobile-sheet",
+      "description": "服药提醒页面 - 浮层卡片列表展示",
+      "files": [
+        "src/blocks/medication.tsx"
+      ],
+      "stories": [
+        "src/blocks/medication.stories.tsx"
+      ],
+      "dependencies": [
+        "status-bar",
+        "float-layer",
+        "service-card",
+        "service-card-status",
+        "service-card-item"
+      ]
+    }
+  ]
+}

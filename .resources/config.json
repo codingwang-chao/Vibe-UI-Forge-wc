@@ -1,0 +1,9 @@
+{
+  "active": "harmony",
+  "resources": {
+    "harmony": {
+      "path": ".resources/harmony",
+      "projectRoot": "harmony-ui-playground"
+    }
+  }
+}
