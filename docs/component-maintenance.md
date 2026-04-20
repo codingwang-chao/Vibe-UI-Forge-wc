@@ -274,3 +274,31 @@ node scripts/validate_design_system_resources.mjs
 - layout 中的 `reference_blocks` 是否在 `blocks.json` 中存在
 - layout 中的 `needed_components` 是否在 `components.json` 中存在
 - block 的 `dependencies` 是否都在 `components.json` 中存在
+
+### 8.6 变更后的最小验收命令
+
+| 变更类型 | 最小验收命令 | 说明 |
+|---------|-------------|------|
+| 新增/修改 layout markdown | `node scripts/validate_design_system_resources.mjs` | 校验 reference_blocks 和 needed_components 引用正确 |
+| 新增/修改 blocks.json | `node scripts/validate_design_system_resources.mjs` | 校验 files/stories 路径和 dependencies 引用正确 |
+| 新增/修改 components.json | `node scripts/validate_design_system_resources.mjs` | 校验 path/stories 路径正确 |
+| 新增/修改组件源码 | `cd harmony-ui-playground && npm run build` | TypeScript 编译和 Vite 构建 |
+| 新增组件 stories | `cd harmony-ui-playground && npm run build-storybook` | Storybook 构建验证 |
+| 任意变更（推荐） | `node scripts/validate_design_system_resources.mjs && cd harmony-ui-playground && npm run build && npm run build-storybook` | 完整校验 |
+
+### 8.7 维护文件清单
+
+新增 layout 时需修改的文件：
+1. `.resources/harmony/layout/{new-layout}.md`（新建）
+2. `.resources/harmony/layout/index.md`（注册）
+3. `.resources/harmony/route-index.md`（增加命中规则）
+
+新增 block 时需修改的文件：
+1. `harmony-ui-playground/src/blocks/{block-name}.tsx`（新建）
+2. `harmony-ui-playground/src/blocks/{block-name}.stories.tsx`（新建）
+3. `.resources/harmony/blocks.json`（注册）
+
+新增 component 时需修改的文件：
+1. `harmony-ui-playground/src/component/{ComponentName}/`（新建 TSX/CSS/stories）
+2. `harmony-ui-playground/src/component/index.ts`（增加导出）
+3. `.resources/harmony/components.json`（注册）
