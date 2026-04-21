@@ -1,0 +1,170 @@
+.devui-pagination {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--devui-font-family-sans, Helvetica, Arial, sans-serif);
+}
+
+/* Left Section: Page Size & Total */
+.devui-pagination__left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.devui-pagination__page-size {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.devui-pagination__page-size-select {
+  appearance: none;
+  height: 28px;
+  padding: 0 28px 0 12px;
+  border: 1px solid var(--devui-form-control-line, #adb0b8);
+  border-radius: 4px;
+  background: var(--devui-base-bg, #ffffff);
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--devui-text, #252b3a);
+  cursor: pointer;
+}
+
+.devui-pagination__page-size-select:focus {
+  outline: none;
+  border-color: var(--devui-icon-fill-active, #5e7ce0);
+}
+
+.devui-pagination__select-arrow {
+  position: absolute;
+  right: 8px;
+  pointer-events: none;
+  color: var(--devui-text-weak, #575d6c);
+}
+
+.devui-pagination__total {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--devui-text-weak, #575d6c);
+}
+
+/* Right Section: Pages & Jump */
+.devui-pagination__right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.devui-pagination__pages {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Page Number Button */
+.devui-pagination__page-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  padding: 0 6px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  font-size: 12px;
+  line-height: 20px;
+  color: var(--devui-aide-text, #8a8e99);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.devui-pagination__page-btn:hover {
+  color: var(--devui-text, #252b3a);
+  background: var(--devui-list-item-hover-bg, #f2f5fc);
+}
+
+.devui-pagination__page-btn.is-active {
+  color: var(--devui-icon-fill-active, #5e7ce0);
+  background: var(--devui-list-item-hover-bg, #f2f5fc);
+}
+
+.devui-pagination__page-btn.is-disabled {
+  color: var(--devui-disabled-text, #adb0b8);
+  background: var(--devui-disabled-fill-bg, #f3f3f3);
+  cursor: not-allowed;
+}
+
+/* Ellipsis */
+.devui-pagination__ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--devui-aide-text, #8a8e99);
+}
+
+.devui-pagination__ellipsis:hover {
+  background: var(--devui-list-item-hover-bg, #f2f5fc);
+  border-radius: 4px;
+}
+
+/* Navigation (Prev/Next) Buttons */
+.devui-pagination__nav-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--devui-aide-text, #8a8e99);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.devui-pagination__nav-btn:hover:not(.is-disabled) {
+  color: var(--devui-text, #252b3a);
+  background: var(--devui-list-item-hover-bg, #f2f5fc);
+}
+
+.devui-pagination__nav-btn.is-disabled {
+  color: var(--devui-disabled-text, #adb0b8);
+  cursor: not-allowed;
+}
+
+.devui-pagination__nav-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Jump Input */
+.devui-pagination__jump {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--devui-text, #252b3a);
+}
+
+.devui-pagination__jump-input {
+  width: 49px;
+  height: 24px;
+  padding: 4px;
+  border: 1px solid var(--devui-form-control-line, #adb0b8);
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 22px;
+  text-align: center;
+  color: var(--devui-text, #252b3a);
+}
+
+.devui-pagination__jump-input:focus {
+  outline: none;
+  border-color: var(--devui-icon-fill-active, #5e7ce0);
+}

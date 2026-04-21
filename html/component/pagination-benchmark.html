@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagination Benchmark - DevUI</title>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --devui-base-bg: #ffffff;
+      --devui-text: #252b3a;
+      --devui-text-weak: #575d6c;
+      --devui-aide-text: #8a8e99;
+      --devui-dividing-line: #dfe1e6;
+      --devui-form-control-line: #adb0b8;
+      --devui-list-item-hover-bg: #f2f5fc;
+      --devui-icon-fill-active: #5e7ce0;
+      --devui-disabled-fill-bg: #f3f3f3;
+      --devui-disabled-text: #adb0b8;
+      --devui-font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "HarmonyOS Sans SC", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--devui-font-family);
+      background: #f6f6f8;
+      padding: 24px;
+    }
+
+    .benchmark-title {
+      font-size: 14px;
+      color: #71757f;
+      margin-bottom: 16px;
+    }
+
+    /* Pagination Container */
+    .devui-pagination {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    /* Page Size Selector & Total */
+    .pagination-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pagination-total {
+      font-size: 14px;
+      color: var(--devui-text-weak);
+    }
+
+    /* Page Size Dropdown */
+    .page-size-select {
+      display: flex;
+      align-items: center;
+      height: 28px;
+      padding: 0 12px;
+      border: 1px solid var(--devui-form-control-line);
+      border-radius: 4px;
+      background: var(--devui-base-bg);
+      font-size: 14px;
+      color: var(--devui-text);
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .page-size-select .chevron {
+      width: 16px;
+      height: 16px;
+      color: var(--devui-text-weak);
+    }
+
+    /* Page Numbers */
+    .pagination-pages {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Page Number Button */
+    .page-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      border: none;
+      background: transparent;
+      font-size: 12px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .page-btn.number {
+      color: var(--devui-aide-text);
+    }
+
+    .page-btn.number:hover {
+      color: var(--devui-text);
+      background: var(--devui-list-item-hover-bg);
+    }
+
+    .page-btn.active {
+      color: var(--devui-icon-fill-active);
+      background: var(--devui-list-item-hover-bg);
+    }
+
+    .page-btn.disabled {
+      color: var(--devui-disabled-text);
+      background: var(--devui-disabled-fill-bg);
+      cursor: not-allowed;
+    }
+
+    /* Ellipsis */
+    .page-btn.ellipsis {
+      color: var(--devui-aide-text);
+    }
+
+    .page-btn.ellipsis:hover {
+      background: var(--devui-list-item-hover-bg);
+    }
+
+    /* Prev/Next Button */
+    .page-nav-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--devui-aide-text);
+      transition: all 0.2s;
+    }
+
+    .page-nav-btn:hover:not(.disabled) {
+      color: var(--devui-text);
+      background: var(--devui-list-item-hover-bg);
+    }
+
+    .page-nav-btn.disabled {
+      color: var(--devui-disabled-text);
+      cursor: not-allowed;
+    }
+
+    .page-nav-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    /* Jump Input */
+    .pagination-jump {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0 12px;
+      font-size: 14px;
+      color: var(--devui-text);
+    }
+
+    .jump-input {
+      width: 49px;
+      height: 24px;
+      padding: 4px;
+      border: 1px solid var(--devui-form-control-line);
+      border-radius: 4px;
+      font-size: 14px;
+      text-align: center;
+      color: var(--devui-text);
+    }
+
+    .jump-input:focus {
+      outline: none;
+      border-color: var(--devui-icon-fill-active);
+    }
+
+    /* Legend */
+    .legend {
+      margin-top: 24px;
+      padding: 16px;
+      background: var(--devui-base-bg);
+      border-radius: 4px;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .legend h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--devui-text);
+      margin-bottom: 12px;
+    }
+
+    .legend-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #71757f;
+    }
+  </style>
+</head>
+<body>
+  <div class="benchmark-title">Pagination Benchmark - Figma Node 233:431</div>
+
+  <!-- Without Jump -->
+  <div class="devui-pagination">
+    <div class="pagination-left">
+      <div class="page-size-select">
+        <span>10</span>
+        <i data-lucide="chevron-down" class="chevron"></i>
+      </div>
+      <span class="pagination-total">条/页, 总条数: 8</span>
+    </div>
+    <div class="pagination-pages">
+      <button class="page-nav-btn disabled" title="上一页">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      <button class="page-btn number active">1</button>
+      <button class="page-btn number">2</button>
+      <button class="page-btn ellipsis">
+        <i data-lucide="more-horizontal"></i>
+      </button>
+      <button class="page-btn number">5</button>
+      <button class="page-nav-btn" title="下一页">
+        <i data-lucide="chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <br><br>
+
+  <!-- With Jump -->
+  <div class="devui-pagination">
+    <div class="pagination-left">
+      <div class="page-size-select">
+        <span>10</span>
+        <i data-lucide="chevron-down" class="chevron"></i>
+      </div>
+      <span class="pagination-total">条/页, 总条数: 8</span>
+    </div>
+    <div class="pagination-pages">
+      <button class="page-nav-btn disabled" title="上一页">
+        <i data-lucide="chevron-left"></i>
+      </button>
+      <button class="page-btn number active">1</button>
+      <button class="page-btn number">2</button>
+      <button class="page-btn ellipsis">
+        <i data-lucide="more-horizontal"></i>
+      </button>
+      <button class="page-btn number">5</button>
+      <button class="page-nav-btn" title="下一页">
+        <i data-lucide="chevron-right"></i>
+      </button>
+    </div>
+    <div class="pagination-jump">
+      <span>跳至</span>
+      <input type="text" class="jump-input" value="1">
+      <span>页</span>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <h3>设计要素对照 (Lucide Icons)</h3>
+    <div class="legend-items">
+      <div class="legend-item">
+        <button class="page-btn number">1</button>
+        <span>Number - default</span>
+      </div>
+      <div class="legend-item">
+        <button class="page-btn number" style="color: var(--devui-text);">2</button>
+        <span>Number - hover</span>
+      </div>
+      <div class="legend-item">
+        <button class="page-btn number active">1</button>
+        <span>Number - active</span>
+      </div>
+      <div class="legend-item">
+        <button class="page-btn disabled">1</button>
+        <span>Number - disabled</span>
+      </div>
+      <div class="legend-item">
+        <button class="page-btn ellipsis"><i data-lucide="more-horizontal" style="width:16px;height:16px;"></i></button>
+        <span>Ellipsis</span>
+      </div>
+      <div class="legend-item">
+        <button class="page-nav-btn"><i data-lucide="chevron-left"></i></button>
+        <span>Prev</span>
+      </div>
+      <div class="legend-item">
+        <button class="page-nav-btn"><i data-lucide="chevron-right"></i></button>
+        <span>Next</span>
+      </div>
+      <div class="legend-item">
+        <div class="page-size-select">
+          <span>10</span>
+          <i data-lucide="chevron-down" class="chevron"></i>
+        </div>
+        <span>Page Size Select</span>
+      </div>
+      <div class="legend-item">
+        <div class="jump-input">1</div>
+        <span>Jump Input</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

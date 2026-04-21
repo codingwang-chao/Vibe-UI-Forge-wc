@@ -24,3 +24,11 @@ export const Playground: Story = {
     </ToolbarBlock>
   ),
 }
+
+export const FigmaComposition: Story = {
+  render: () => (
+    <div style={{ background: "#ffffff", width: "100%" }}>
+      <ToolbarBlock />
+    </div>
+  ),
+}

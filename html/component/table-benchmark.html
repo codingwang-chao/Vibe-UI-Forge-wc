@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Table Benchmark - DevUI (Lucide Icons)</title>
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      /* DevUI Tokens */
+      --devui-base-bg: #ffffff;
+      --devui-text: #252b3a;
+      --devui-dividing-line: #dfe1e6;
+      --devui-form-control-line: #adb0b8;
+      --devui-success-line: #50d4ab;
+      --devui-warning-line: #fa9841;
+      --devui-danger-line: #f66f6a;
+      --devui-light-text: #ffffff;
+      --devui-list-item-hover-bg: #f2f5fc;
+
+      --devui-font-family: Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "HarmonyOS Sans SC", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--devui-font-family);
+      background: #f6f6f8;
+      padding: 24px;
+    }
+
+    .benchmark-title {
+      font-size: 14px;
+      color: #71757f;
+      margin-bottom: 16px;
+    }
+
+    /* Table Container */
+    .devui-table {
+      width: 100%;
+      max-width: 1584px;
+      background: var(--devui-base-bg);
+      border-radius: 4px;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    /* Table Structure */
+    .devui-table table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    /* Header Row */
+    .devui-table th {
+      height: 42px;
+      padding: 0 16px;
+      background: var(--devui-base-bg);
+      border-bottom: 1px solid var(--devui-dividing-line);
+      text-align: left;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--devui-text);
+      vertical-align: middle;
+    }
+
+    /* Body Row */
+    .devui-table td {
+      height: 42px;
+      padding: 0 16px;
+      background: var(--devui-base-bg);
+      border-bottom: 1px solid var(--devui-dividing-line);
+      font-size: 14px;
+      font-weight: 400;
+      color: #000000;
+      vertical-align: middle;
+    }
+
+    /* Row hover */
+    .devui-table tbody tr:hover td {
+      background: var(--devui-list-item-hover-bg);
+    }
+
+    /* Column Widths */
+    .col-check { width: 48px; text-align: center; }
+    .col-index { width: 119px; }
+    .col-title { width: 380px; }
+    .col-date { width: 105px; }
+    .col-start-date { width: 215px; }
+    .col-end-date { width: 199px; }
+    .col-status { width: 169px; }
+    .col-assignee { width: 118px; }
+    .col-priority { width: 116px; }
+    .col-actions { width: 115px; }
+
+    /* Checkbox */
+    .col-check input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      border: 1px solid var(--devui-form-control-line);
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    /* Header Cell */
+    .header-cell {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .header-cell.sortable {
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .header-text {
+      font-weight: 700;
+    }
+
+    /* Lucide Icon Styling */
+    .icon {
+      width: 16px;
+      height: 16px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .icon-sm {
+      width: 14px;
+      height: 14px;
+    }
+
+    .icon-lg {
+      width: 20px;
+      height: 20px;
+    }
+
+    /* Sort Icon - Lucide ArrowUpDown */
+    .sort-icon {
+      color: #71757f;
+    }
+
+    /* Filter Icon - Lucide Filter */
+    .filter-icon {
+      color: #71757f;
+    }
+
+    /* Tree Expand Icon - Lucide ChevronRight */
+    .tree-expand-icon {
+      color: #71757f;
+      transition: transform 0.2s;
+    }
+
+    /* Priority High */
+    .priority-high {
+      color: #f66f6a;
+    }
+
+    /* Priority Medium */
+    .priority-medium {
+      color: #fa9841;
+    }
+
+    /* Priority Low */
+    .priority-low {
+      color: #babbc0;
+    }
+
+    /* Cell Content */
+    .cell-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 20px;
+    }
+
+    .cell-content.tree-row {
+      padding-left: 0;
+    }
+
+    /* Tags */
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
+      height: 20px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tag-fill-bug {
+      background: var(--devui-warning-line);
+      color: var(--devui-light-text);
+    }
+
+    .tag-fill-story {
+      background: var(--devui-success-line);
+      color: var(--devui-light-text);
+    }
+
+    .tag-outline-overdue {
+      background: transparent;
+      border: 1px solid var(--devui-danger-line);
+      color: var(--devui-danger-line);
+      font-size: 12px;
+    }
+
+    /* Title Text */
+    .title-text {
+      font-weight: 700;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    /* Actions */
+    .actions-group {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .action-btn {
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      cursor: pointer;
+      color: #71757f;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .action-btn:hover {
+      background: var(--devui-list-item-hover-bg);
+      color: var(--devui-text);
+    }
+
+    /* Empty State */
+    .empty-cell {
+      color: #71757f;
+    }
+
+    /* Legend */
+    .legend {
+      margin-top: 24px;
+      padding: 16px;
+      background: var(--devui-base-bg);
+      border-radius: 4px;
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .legend h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--devui-text);
+      margin-bottom: 12px;
+    }
+
+    .legend-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #71757f;
+    }
+
+    .icon-legend {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="benchmark-title">Table Benchmark - Figma Node 497:2419</div>
+
+  <div class="devui-table">
+    <table>
+      <!-- Header Row -->
+      <thead>
+        <tr>
+          <th class="col-check">
+            <input type="checkbox">
+          </th>
+          <th class="col-index">
+            <div class="header-cell sortable">
+              <span class="header-text">编号</span>
+              <i data-lucide="arrow-up-down" class="icon icon-sm sort-icon"></i>
+            </div>
+          </th>
+          <th class="col-title">
+            <div class="header-cell sortable">
+              <i data-lucide="chevron-right" class="icon icon-sm tree-expand-icon"></i>
+              <span class="header-text">标题</span>
+              <i data-lucide="arrow-up-down" class="icon icon-sm sort-icon"></i>
+            </div>
+          </th>
+          <th class="col-date">
+            <div class="header-cell sortable">
+              <span class="header-text">结束时间</span>
+              <i data-lucide="arrow-up-down" class="icon icon-sm sort-icon"></i>
+            </div>
+          </th>
+          <th class="col-status">
+            <div class="header-cell sortable">
+              <span class="header-text">状态</span>
+              <i data-lucide="filter" class="icon icon-sm filter-icon"></i>
+              <i data-lucide="arrow-up-down" class="icon icon-sm sort-icon"></i>
+            </div>
+          </th>
+          <th class="col-assignee">
+            <div class="header-cell sortable">
+              <span class="header-text">处理人</span>
+              <i data-lucide="filter" class="icon icon-sm filter-icon"></i>
+              <i data-lucide="arrow-up-down" class="icon icon-sm sort-icon"></i>
+            </div>
+          </th>
+          <th class="col-start-date">
+            <div class="header-cell sortable">
+              <span class="header-text">预计开始时间</span>
+              <i data-lucide="arrow-up-down" class="icon icon-sm sort-icon"></i>
+            </div>
+          </th>
+          <th class="col-end-date">
+            <div class="header-cell sortable">
+              <span class="header-text">预计结束时间</span>
+              <i data-lucide="arrow-up-down" class="icon icon-sm sort-icon"></i>
+            </div>
+          </th>
+          <th class="col-priority">
+            <div class="header-cell sortable">
+              <span class="header-text">优先级</span>
+              <i data-lucide="filter" class="icon icon-sm filter-icon"></i>
+              <i data-lucide="arrow-up-down" class="icon icon-sm sort-icon"></i>
+            </div>
+          </th>
+          <th class="col-actions">
+            <div class="header-cell">
+              <i data-lucide="chevron-right" class="icon icon-sm tree-expand-icon"></i>
+              <span class="header-text">操作</span>
+            </div>
+          </th>
+        </tr>
+      </thead>
+
+      <!-- Body Rows -->
+      <tbody>
+        <!-- Row 1 -->
+        <tr>
+          <td class="col-check">
+            <input type="checkbox">
+          </td>
+          <td class="col-index">12345678</td>
+          <td class="col-title">
+            <div class="cell-content tree-row">
+              <span class="tag tag-fill-bug">Bug</span>
+              <span class="title-text">作为用户应该可以查看产品列表</span>
+            </div>
+          </td>
+          <td class="col-date empty-cell">--</td>
+          <td class="col-status">新建</td>
+          <td class="col-assignee">hw12345678</td>
+          <td class="col-start-date">2025-03-09</td>
+          <td class="col-end-date">
+            <div class="cell-content">
+              <span>2026-02-09</span>
+              <span class="tag tag-outline-overdue">超期9天</span>
+            </div>
+          </td>
+          <td class="col-priority">
+            <div class="cell-content">
+              <i data-lucide="flag" class="icon icon-sm priority-medium"></i>
+              <span>中</span>
+            </div>
+          </td>
+          <td class="col-actions">
+            <div class="actions-group">
+              <span class="action-btn" title="编辑">
+                <i data-lucide="pencil" class="icon"></i>
+              </span>
+              <span class="action-btn" title="收藏">
+                <i data-lucide="star" class="icon"></i>
+              </span>
+              <span class="action-btn" title="更多">
+                <i data-lucide="more-horizontal" class="icon"></i>
+              </span>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Row 2 -->
+        <tr>
+          <td class="col-check">
+            <input type="checkbox">
+          </td>
+          <td class="col-index">12345678</td>
+          <td class="col-title">
+            <div class="cell-content tree-row">
+              <span class="tag tag-fill-story">Story</span>
+              <span class="title-text">作为用户应该可以查看产品列表</span>
+            </div>
+          </td>
+          <td class="col-date empty-cell">--</td>
+          <td class="col-status">新建</td>
+          <td class="col-assignee">hw12345678</td>
+          <td class="col-start-date">--</td>
+          <td class="col-end-date">--</td>
+          <td class="col-priority">
+            <div class="cell-content">
+              <i data-lucide="flag" class="icon icon-sm priority-high"></i>
+              <span>高</span>
+            </div>
+          </td>
+          <td class="col-actions">
+            <div class="actions-group">
+              <span class="action-btn" title="编辑">
+                <i data-lucide="pencil" class="icon"></i>
+              </span>
+              <span class="action-btn" title="收藏">
+                <i data-lucide="star" class="icon"></i>
+              </span>
+              <span class="action-btn" title="更多">
+                <i data-lucide="more-horizontal" class="icon"></i>
+              </span>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Row 3 -->
+        <tr>
+          <td class="col-check">
+            <input type="checkbox">
+          </td>
+          <td class="col-index">12345678</td>
+          <td class="col-title">
+            <div class="cell-content tree-row">
+              <span class="tag tag-fill-bug">Bug</span>
+              <span class="title-text">作为用户应该可以查看产品列表</span>
+            </div>
+          </td>
+          <td class="col-date empty-cell">--</td>
+          <td class="col-status">进行中</td>
+          <td class="col-assignee">hw12345678</td>
+          <td class="col-start-date">--</td>
+          <td class="col-end-date">--</td>
+          <td class="col-priority">
+            <div class="cell-content">
+              <i data-lucide="flag" class="icon icon-sm priority-low"></i>
+              <span>低</span>
+            </div>
+          </td>
+          <td class="col-actions">
+            <div class="actions-group">
+              <span class="action-btn" title="编辑">
+                <i data-lucide="pencil" class="icon"></i>
+              </span>
+              <span class="action-btn" title="收藏">
+                <i data-lucide="star" class="icon"></i>
+              </span>
+              <span class="action-btn" title="更多">
+                <i data-lucide="more-horizontal" class="icon"></i>
+              </span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <h3>设计要素对照 (Lucide Icons)</h3>
+    <div class="legend-items">
+      <div class="legend-item">
+        <span class="tag tag-fill-bug">Bug</span>
+        <span>Fill Tag (warning)</span>
+      </div>
+      <div class="legend-item">
+        <span class="tag tag-fill-story">Story</span>
+        <span>Fill Tag (success)</span>
+      </div>
+      <div class="legend-item">
+        <span class="tag tag-outline-overdue">超期9天</span>
+        <span>Outline Tag (danger)</span>
+      </div>
+      <div class="legend-item">
+        <div class="icon-legend">
+          <i data-lucide="arrow-up-down" class="icon"></i>
+        </div>
+        <span>Sort - arrow-up-down</span>
+      </div>
+      <div class="legend-item">
+        <div class="icon-legend">
+          <i data-lucide="filter" class="icon"></i>
+        </div>
+        <span>Filter - filter</span>
+      </div>
+      <div class="legend-item">
+        <div class="icon-legend">
+          <i data-lucide="chevron-right" class="icon"></i>
+        </div>
+        <span>Tree Expand - chevron-right</span>
+      </div>
+      <div class="legend-item">
+        <div class="icon-legend">
+          <i data-lucide="flag" class="icon" style="color: #fa9841;"></i>
+        </div>
+        <span>Priority - flag (高/中/低 颜色区分)</span>
+      </div>
+      <div class="legend-item">
+        <div class="icon-legend">
+          <i data-lucide="pencil" class="icon"></i>
+        </div>
+        <span>Edit - pencil</span>
+      </div>
+      <div class="legend-item">
+        <div class="icon-legend">
+          <i data-lucide="star" class="icon"></i>
+        </div>
+        <span>Collection - star</span>
+      </div>
+      <div class="legend-item">
+        <div class="icon-legend">
+          <i data-lucide="more-horizontal" class="icon"></i>
+        </div>
+        <span>More - more-horizontal</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Icon Mapping Notes -->
+  <div class="legend" style="margin-top: 16px;">
+    <h3>Lucide Icon 映射</h3>
+    <div class="legend-items">
+      <div class="legend-item">
+        <strong>Figma Sort3</strong> → <code>arrow-up-down</code>
+      </div>
+      <div class="legend-item">
+        <strong>Figma FilterO</strong> → <code>filter</code>
+      </div>
+      <div class="legend-item">
+        <strong>Figma TreeExpand</strong> → <code>chevron-right</code>
+      </div>
+      <div class="legend-item">
+        <strong>Figma PriorityFlag</strong> → <code>flag</code> (按颜色区分优先级)
+      </div>
+      <div class="legend-item">
+        <strong>Figma CodehubOpEdit</strong> → <code>pencil</code>
+      </div>
+      <div class="legend-item">
+        <strong>Figma CodehubCollection</strong> → <code>star</code>
+      </div>
+      <div class="legend-item">
+        <strong>Figma More2</strong> → <code>more-horizontal</code>
+      </div>
+    </div>
+  </div>
+
+  <!-- Initialize Lucide Icons -->
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

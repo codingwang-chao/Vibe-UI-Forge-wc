@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Column } from "./column"
+import { ButtonIcon } from "@/components/ui/button/button-icon"
 import type {
   ColumnProps,
   ResolvedColumn,
@@ -568,7 +569,7 @@ export function Table({
                             )
                           }}
                         >
-                          ⌄
+                          <ButtonIcon name="filter" className="icon-sm" />
                         </button>
                       )}
                       {column.sortable && (
@@ -580,12 +581,9 @@ export function Table({
                           )}
                           aria-label="sort"
                         >
-                          <span
-                            className={cx(
-                              "sort-indicator",
-                              activeSort.direction === "ASC" && "asc",
-                              activeSort.direction === "DESC" && "desc"
-                            )}
+                          <ButtonIcon
+                            name="arrow-up-down"
+                            className="icon-sm"
                           />
                         </button>
                       )}
@@ -718,7 +716,13 @@ export function Table({
                             className="expand-toggle"
                             onClick={() => toggleExpand(item.row, rowIndex)}
                           >
-                            {expandedKeys.has(item.identity) ? "−" : "+"}
+                            <ButtonIcon
+                              name="chevron-right"
+                              className={cx(
+                                "icon-sm",
+                                expandedKeys.has(item.identity) && "rotated"
+                              )}
+                            />
                           </button>
                         ) : (
                           <>
@@ -728,7 +732,13 @@ export function Table({
                                 className="expand-toggle"
                                 onClick={() => toggleExpand(item.row, rowIndex)}
                               >
-                                {expandedKeys.has(item.identity) ? "−" : "+"}
+                                <ButtonIcon
+                                  name="chevron-right"
+                                  className={cx(
+                                    "icon-sm",
+                                    expandedKeys.has(item.identity) && "rotated"
+                                  )}
+                                />
                               </button>
                             )}
                             {column.childrenRenderer

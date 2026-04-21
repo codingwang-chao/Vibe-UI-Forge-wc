@@ -1,0 +1,202 @@
+{
+  "$schema": "./schemas/components.schema.json",
+  "components": [
+    {
+      "id": "accordion-nav",
+      "name": "AccordionNav",
+      "path": "src/components/ui/accordion-nav",
+      "export": "AccordionNav",
+      "stories": "src/components/ui/accordion-nav/accordion-nav.stories.tsx"
+    },
+    {
+      "id": "avatar",
+      "name": "Avatar",
+      "path": "src/components/ui/avatar",
+      "export": "Avatar",
+      "stories": "src/components/ui/avatar/avatar.stories.tsx"
+    },
+    {
+      "id": "badge",
+      "name": "Badge",
+      "path": "src/components/ui/badge",
+      "export": "Badge",
+      "stories": "src/components/ui/badge/badge.stories.tsx"
+    },
+    {
+      "id": "button",
+      "name": "Button",
+      "path": "src/components/ui/button",
+      "export": "Button",
+      "stories": "src/components/ui/button/button.stories.tsx"
+    },
+    {
+      "id": "card",
+      "name": "Card",
+      "path": "src/components/ui/card",
+      "export": "Card",
+      "stories": "src/components/ui/card/card.stories.tsx"
+    },
+    {
+      "id": "dialog",
+      "name": "Dialog",
+      "path": "src/components/ui/dialog",
+      "export": "Dialog",
+      "stories": "src/components/ui/dialog/dialog.stories.tsx"
+    },
+    {
+      "id": "dialog-body",
+      "name": "DialogBody",
+      "path": "src/components/ui/dialog",
+      "export": "DialogBody",
+      "stories": "src/components/ui/dialog/dialog.stories.tsx"
+    },
+    {
+      "id": "dialog-close",
+      "name": "DialogClose",
+      "path": "src/components/ui/dialog",
+      "export": "DialogClose",
+      "stories": "src/components/ui/dialog/dialog.stories.tsx"
+    },
+    {
+      "id": "dialog-footer",
+      "name": "DialogFooter",
+      "path": "src/components/ui/dialog",
+      "export": "DialogFooter",
+      "stories": "src/components/ui/dialog/dialog.stories.tsx"
+    },
+    {
+      "id": "dialog-header",
+      "name": "DialogHeader",
+      "path": "src/components/ui/dialog",
+      "export": "DialogHeader",
+      "stories": "src/components/ui/dialog/dialog.stories.tsx"
+    },
+    {
+      "id": "dialog-overlay",
+      "name": "DialogOverlay",
+      "path": "src/components/ui/dialog",
+      "export": "DialogOverlay",
+      "stories": "src/components/ui/dialog/dialog.stories.tsx"
+    },
+    {
+      "id": "form-shell-frame",
+      "name": "FormShellFrame",
+      "path": "src/components/ui/form-shell-frame",
+      "export": "FormShellFrame",
+      "stories": "src/components/ui/form-shell-frame/form-shell-frame.stories.tsx"
+    },
+    {
+      "id": "input",
+      "name": "Input",
+      "path": "src/components/ui/input",
+      "export": "Input",
+      "stories": "src/components/ui/input/input.stories.tsx"
+    },
+    {
+      "id": "select",
+      "name": "Select",
+      "path": "src/components/ui/select",
+      "export": "Select",
+      "stories": "src/components/ui/select/select.stories.tsx"
+    },
+    {
+      "id": "option",
+      "name": "Option",
+      "path": "src/components/ui/select",
+      "export": "Option",
+      "stories": "src/components/ui/select/select.stories.tsx"
+    },
+    {
+      "id": "option-group",
+      "name": "OptionGroup",
+      "path": "src/components/ui/select",
+      "export": "OptionGroup",
+      "stories": "src/components/ui/select/select.stories.tsx"
+    },
+    {
+      "id": "pagination",
+      "name": "Pagination",
+      "path": "src/components/ui/pagination",
+      "export": "Pagination",
+      "stories": "src/components/ui/pagination/pagination.stories.tsx",
+      "spec": ".resources/devui/component/pagination.md"
+    },
+    {
+      "id": "sidebar-nav",
+      "name": "SidebarNav",
+      "path": "src/components/ui/sidebar-nav",
+      "export": "SidebarNav",
+      "stories": "src/components/ui/sidebar-nav/sidebar-nav.stories.tsx"
+    },
+    {
+      "id": "subheader",
+      "name": "Subheader",
+      "path": "src/components/ui/subheader",
+      "export": "Subheader",
+      "stories": "src/components/ui/subheader/subheader.stories.tsx"
+    },
+    {
+      "id": "switch",
+      "name": "Switch",
+      "path": "src/components/ui/switch",
+      "export": "Switch",
+      "stories": "src/components/ui/switch/switch.stories.tsx"
+    },
+    {
+      "id": "tag",
+      "name": "Tag",
+      "path": "src/components/ui/tag",
+      "export": "Tag",
+      "stories": "src/components/ui/tag/tag.stories.tsx"
+    },
+    {
+      "id": "table-shell-frame",
+      "name": "TableShellFrame",
+      "path": "src/components/ui/table-shell-frame",
+      "export": "TableShellFrame",
+      "stories": "src/components/ui/table-shell-frame/table-shell-frame.stories.tsx"
+    },
+    {
+      "id": "table",
+      "name": "Table",
+      "path": "src/components/ui/table",
+      "export": "Table",
+      "stories": "src/components/ui/table/table.stories.tsx"
+    },
+    {
+      "id": "column",
+      "name": "Column",
+      "path": "src/components/ui/table",
+      "export": "Column",
+      "stories": "src/components/ui/table/table.stories.tsx"
+    },
+    {
+      "id": "title-tabs-header",
+      "name": "TitleTabsHeader",
+      "path": "src/components/ui/title-tabs-header",
+      "export": "TitleTabsHeader",
+      "stories": "src/components/ui/title-tabs-header/title-tabs-header.stories.tsx"
+    },
+    {
+      "id": "toolbar-block",
+      "name": "ToolbarBlock",
+      "path": "src/components/ui/toolbar-block",
+      "export": "ToolbarBlock",
+      "stories": "src/components/ui/toolbar-block/toolbar-block.stories.tsx"
+    },
+    {
+      "id": "tree-nav",
+      "name": "TreeNav",
+      "path": "src/components/ui/tree-nav",
+      "export": "TreeNav",
+      "stories": "src/components/ui/tree-nav/tree-nav.stories.tsx"
+    },
+    {
+      "id": "separator",
+      "name": "Separator",
+      "path": "src/components/ui/separator.tsx",
+      "export": "Separator",
+      "stories": "src/components/ui/separator.stories.tsx"
+    }
+  ]
+}

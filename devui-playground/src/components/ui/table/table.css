@@ -3,8 +3,8 @@
   display: flex;
   width: 100%;
   overflow-x: auto;
-  color: #1f2937;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--devui-text, #252b3a);
+  font-family: var(--devui-font-family-sans, Helvetica, Arial, sans-serif);
 }
 
 .devui-table__container {
@@ -17,7 +17,7 @@
   border-spacing: 0;
   border-collapse: collapse;
   table-layout: fixed;
-  background: #fff;
+  background: var(--devui-base-bg, #ffffff);
 }
 
 .devui-table--layout-auto {
@@ -26,60 +26,68 @@
 
 .devui-table__thead th,
 .devui-table__tbody td {
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid var(--devui-dividing-line, #dfe1e6);
 }
 
 .devui-table__thead th {
   position: sticky;
   top: 0;
   z-index: 2;
-  background: #f9fafb;
+  background: var(--devui-base-bg, #ffffff);
   text-align: left;
   vertical-align: middle;
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--devui-text, #252b3a);
 }
 
 .devui-table--header-bg .devui-table__thead th {
-  background: #eef2ff;
+  background: var(--devui-primary-bg, #e9edfa);
 }
 
 .devui-table--striped .devui-table__tbody tr:nth-child(even) {
-  background: #f8fafc;
+  background: var(--devui-list-item-strip-bg, #f2f5fc);
 }
 
 .devui-table__row:hover,
 .devui-table__row.hover-enabled:hover {
-  background: #f3f4f6;
+  background: var(--devui-list-item-hover-bg, #f2f5fc);
 }
 
 .devui-table__view th,
 .devui-table__view td {
-  padding: 12px 16px;
+  padding: 0 16px;
+  height: 42px;
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 22px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: #000000;
 }
 
 .devui-table--sm .devui-table__view th,
 .devui-table--sm .devui-table__view td {
-  padding: 8px 12px;
+  padding: 0 12px;
+  height: 36px;
+  font-size: 13px;
 }
 
 .devui-table--md .devui-table__view th,
 .devui-table--md .devui-table__view td {
-  padding: 10px 14px;
+  padding: 0 14px;
+  height: 42px;
 }
 
 .devui-table--lg .devui-table__view th,
 .devui-table--lg .devui-table__view td {
-  padding: 14px 18px;
+  padding: 0 18px;
+  height: 48px;
 }
 
 .devui-table--bordered .devui-table__view td,
 .devui-table--bordered .devui-table__view th {
-  border-right: 1px solid #e5e7eb;
+  border-right: 1px solid var(--devui-dividing-line, #dfe1e6);
 }
 
 .devui-table--borderless .devui-table__view td {
@@ -124,9 +132,12 @@
 .expand-toggle {
   border: 0;
   background: transparent;
-  color: #6b7280;
+  color: var(--devui-icon-text, #71757f);
   cursor: pointer;
   padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .sort-clickable {
@@ -135,23 +146,8 @@
 }
 
 .sort-indicator {
-  width: 0;
-  height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 6px solid #9ca3af;
-  transform: rotate(180deg);
-  transition: transform 0.2s ease, border-top-color 0.2s ease;
-}
-
-.sort-indicator.asc {
-  transform: rotate(0deg);
-  border-top-color: #2563eb;
-}
-
-.sort-indicator.desc {
-  transform: rotate(180deg);
-  border-top-color: #2563eb;
+  width: 16px;
+  height: 16px;
 }
 
 .filter-wrapper {
@@ -160,9 +156,9 @@
   left: 8px;
   min-width: 180px;
   padding: 8px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--devui-dividing-line, #dfe1e6);
   border-radius: 12px;
-  background: #fff;
+  background: var(--devui-base-bg, #ffffff);
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
   z-index: 20;
 }
@@ -176,12 +172,13 @@
   padding: 8px 10px;
   border-radius: 8px;
   cursor: pointer;
+  color: var(--devui-text, #252b3a);
 }
 
 .filter-item.is-active,
 .filter-item:hover {
-  background: #eff6ff;
-  color: #1d4ed8;
+  background: var(--devui-primary-bg, #e9edfa);
+  color: var(--devui-primary, #5e7ce0);
 }
 
 .cell-inner {
@@ -195,14 +192,14 @@
   width: 20px;
   height: 20px;
   border-radius: 999px;
-  border: 1px solid #cbd5e1;
+  border: 1px solid var(--devui-form-control-line, #adb0b8);
   line-height: 18px;
 }
 
 .devui-table__empty {
   padding: 40px 0;
   text-align: center;
-  color: #6b7280;
+  color: var(--devui-aide-text, #71757f);
 }
 
 .devui-table__loading {
@@ -217,8 +214,8 @@
 
 .expand-panel {
   padding: 12px 16px;
-  color: #475569;
-  background: #f8fafc;
+  color: var(--devui-text, #252b3a);
+  background: var(--devui-list-item-hover-bg, #f2f5fc);
 }
 
 .devui-table__lazy-row td {
@@ -226,3 +223,58 @@
   border: 0;
 }
 
+/* Action buttons */
+.devui-table__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.devui-table__action-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--devui-icon-text, #71757f);
+  transition: background 0.2s, color 0.2s;
+  border: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.devui-table__action-btn:hover {
+  background: var(--devui-list-item-hover-bg, #f2f5fc);
+  color: var(--devui-text, #252b3a);
+}
+
+.devui-table__action-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Priority icons */
+.devui-table__priority-high {
+  color: var(--devui-danger-line, #f66f6a);
+}
+
+.devui-table__priority-medium {
+  color: var(--devui-warning-line, #fa9841);
+}
+
+.devui-table__priority-low {
+  color: var(--devui-icon-fill-weak, #babbc0);
+}
+
+/* Icon sizing for table controls */
+.devui-table .icon-sm {
+  width: 14px;
+  height: 14px;
+}
+
+/* Rotated state for expand chevron */
+.devui-table .rotated {
+  transform: rotate(90deg);
+}

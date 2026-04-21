@@ -1,0 +1,110 @@
+.devui-tag {
+  display: inline-flex;
+  box-sizing: border-box;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--devui-list-item-strip-bg, #f2f5fc);
+  color: var(--devui-text, #252b3a);
+  font-family: var(--devui-font-family-sans);
+  font-weight: 400;
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+.devui-tag--md {
+  height: 20px;
+  padding: 0 8px;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.devui-tag--lg {
+  height: 24px;
+  padding: 0 8px;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/* Fill Tags */
+.devui-tag--fill {
+  font-weight: 500;
+  color: var(--devui-light-text, #ffffff);
+}
+
+.devui-tag--fill-green {
+  background: var(--devui-success-line, #50d4ab);
+}
+
+.devui-tag--fill-orange {
+  background: var(--devui-warning-line, #fa9841);
+}
+
+/* Outline Tags */
+.devui-tag--outline {
+  background: transparent;
+  border: 1px solid;
+}
+
+.devui-tag--outline-green {
+  border-color: var(--devui-success-line, #50d4ab);
+  color: var(--devui-success-line, #50d4ab);
+}
+
+.devui-tag--outline-orange {
+  border-color: var(--devui-warning-line, #fa9841);
+  color: var(--devui-warning-line, #fa9841);
+}
+
+.devui-tag--outline-red {
+  border-color: var(--devui-danger-line, #f66f6a);
+  color: var(--devui-danger-line, #f66f6a);
+}
+
+/* Regular Tags */
+.devui-tag--regular {
+  background: var(--devui-list-item-strip-bg, #f2f5fc);
+  color: var(--devui-text, #252b3a);
+}
+
+.devui-tag--regular-green {
+  background: var(--devui-success-bg, #cffcee);
+  color: var(--devui-success-line, #50d4ab);
+}
+
+.devui-tag--regular-grey {
+  background: var(--devui-list-item-hover-bg, #f2f2f3);
+  color: var(--devui-text, #252b3a);
+}
+
+/* Icons */
+.devui-tag__icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  color: inherit;
+}
+
+.devui-tag__text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Close button */
+.devui-tag__close.mini-devui-button {
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+  color: inherit;
+  padding: 0;
+}
+
+.devui-tag__close .mini-devui-button__icon-svg {
+  width: 16px;
+  height: 16px;
+}

@@ -4,6 +4,10 @@
     "harmony": {
       "path": ".resources/harmony",
       "projectRoot": "harmony-ui-playground"
+    },
+    "devui": {
+      "path": ".resources/devui",
+      "projectRoot": "devui-playground"
     }
   }
 }

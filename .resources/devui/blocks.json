@@ -1,0 +1,118 @@
+{
+  "$schema": "./schemas/blocks.schema.json",
+  "blocks": [
+    {
+      "id": "table-block",
+      "name": "TableBlock",
+      "pageType": "table-page",
+      "description": "表格页面区块，由 ToolbarBlock + Table + Pagination 组合而成。",
+      "doc": "block/table-block.md",
+      "files": [
+        "src/components/ui/table-block/table-block.tsx",
+        "src/components/ui/table-block/table-block.css"
+      ],
+      "stories": [
+        "src/components/ui/table-block/table-block.stories.tsx"
+      ],
+      "dependencies": [
+        "toolbar-block",
+        "table",
+        "pagination"
+      ]
+    },
+    {
+      "id": "toolbar-block",
+      "name": "ToolbarBlock",
+      "pageType": "table-page",
+      "description": "页面或区块操作条，可承载按钮、搜索、筛选、导出、刷新等操作。",
+      "doc": "block/toolbar-block.md",
+      "files": [
+        "src/components/ui/toolbar-block/toolbar-block.tsx",
+        "src/components/ui/toolbar-block/toolbar-block.css"
+      ],
+      "stories": [
+        "src/components/ui/toolbar-block/toolbar-block.stories.tsx"
+      ],
+      "dependencies": [
+        "button",
+        "input",
+        "select"
+      ]
+    },
+    {
+      "id": "title-tabs-header",
+      "name": "TitleTabsHeader",
+      "pageType": "form-page",
+      "description": "带标题和页内 Tab 的二级头部，适合详情、配置和列表子视图切换。",
+      "doc": "block/title-tabs-header.md",
+      "files": [
+        "src/components/ui/title-tabs-header/title-tabs-header.tsx",
+        "src/components/ui/title-tabs-header/title-tabs-header.css"
+      ],
+      "stories": [
+        "src/components/ui/title-tabs-header/title-tabs-header.stories.tsx"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "subheader",
+      "name": "Subheader",
+      "pageType": "form-page",
+      "description": "轻量二级头部，可承载面包屑和页内 Tab。",
+      "doc": "block/subheader.md",
+      "files": [
+        "src/components/ui/subheader/subheader.tsx",
+        "src/components/ui/subheader/subheader.css"
+      ],
+      "stories": [
+        "src/components/ui/subheader/subheader.stories.tsx"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "sidebar-nav",
+      "name": "SidebarNav",
+      "pageType": "table-page",
+      "description": "一级侧边导航，适合企业管理页面的主导航或资源分组。",
+      "doc": "block/sidebar-nav.md",
+      "files": [
+        "src/components/ui/sidebar-nav/sidebar-nav.tsx",
+        "src/components/ui/sidebar-nav/sidebar-nav.css"
+      ],
+      "stories": [
+        "src/components/ui/sidebar-nav/sidebar-nav.stories.tsx"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "accordion-nav",
+      "name": "AccordionNav",
+      "pageType": "form-page",
+      "description": "可展开/收起的配置分组导航，适合表单页或设置页的二级导航。",
+      "doc": "block/accordion-nav.md",
+      "files": [
+        "src/components/ui/accordion-nav/accordion-nav.tsx",
+        "src/components/ui/accordion-nav/accordion-nav.css"
+      ],
+      "stories": [
+        "src/components/ui/accordion-nav/accordion-nav.stories.tsx"
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "tree-nav",
+      "name": "TreeNav",
+      "pageType": "form-page",
+      "description": "树形导航，适合组织结构、资源目录、配置分类等层级选择。",
+      "doc": "block/tree-nav.md",
+      "files": [
+        "src/components/ui/tree-nav/tree-nav.tsx",
+        "src/components/ui/tree-nav/tree-nav.css"
+      ],
+      "stories": [
+        "src/components/ui/tree-nav/tree-nav.stories.tsx"
+      ],
+      "dependencies": []
+    }
+  ]
+}

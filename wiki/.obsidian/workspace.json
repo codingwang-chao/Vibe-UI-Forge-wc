@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-架构总览/02-shadcn.md",
+                "file": "01-认识 Skill/02-Design system skill简介.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02-shadcn"
+              "title": "02-Design system skill简介"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "01-架构总览/02-shadcn.md",
+                "file": "01-认识 Skill/02-Design system skill简介.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "02-shadcn 的反向链接列表"
+              "title": "02-Design system skill简介 的反向链接列表"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "01-架构总览/02-shadcn.md",
+                "file": "01-认识 Skill/02-Design system skill简介.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "02-shadcn 的出链列表"
+              "title": "02-Design system skill简介 的出链列表"
             }
           },
           {
@@ -156,21 +156,21 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "01-架构总览/02-shadcn.md",
+                "file": "01-认识 Skill/02-Design system skill简介.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "02-shadcn 的大纲"
+              "title": "02-Design system skill简介 的大纲"
             }
           }
-        ]
+        ],
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -185,15 +185,36 @@
   },
   "active": "1aaaca5a07c5c3a3",
   "lastOpenFiles": [
-    "01-架构总览/02-shadcn.md",
-    "01-架构总览/03-长期目标.md",
-    "01-架构总览/01-架构总览.md",
-    "01-架构总览/02-shadcn/02-为什么follow-shadcn架构.md",
-    "01-架构总览/02-shadcn/01-shadcn是什么.md",
-    "01-架构总览/02-shadcn",
-    "03-设计系统资源/01-设计系统资源概览.md",
-    "02-环境准备/01-工具准备.md",
     "00-快速入口.md",
-    "01-架构总览/02-完整架构概览.md"
+    "01-认识 Skill/02-Design system skill简介.md",
+    "01-认识 Skill/01-为什么是react + markdown?.md",
+    "04-参考资料/01-资源层文件说明.md",
+    "04-参考资料/05-components.json 模板.md",
+    "02-从 0 构建资源接入/02-如何预览react组件.md",
+    "04-参考资料/07-项目目录说明.md",
+    "02-从 0 构建资源接入/03-从设计输入到资源层的完整路径.md",
+    "02-从 0 构建资源接入/04-抽取 Component 资源.md",
+    "02-从 0 构建资源接入/05-抽取 Block.md",
+    "02-从 0 构建资源接入/06-配置 Page Type 与 Layout.md",
+    "02-从 0 构建资源接入/07-生成 Resource Layer 索引.md",
+    "02-从 0 构建资源接入/08-资源接入验收清单.md",
+    "04-参考资料/06-术语表.md",
+    "04-参考资料/04-blocks.json 模板.md",
+    "04-参考资料/03-layout markdown 模板.md",
+    "04-参考资料/02-route-index 模板.md",
+    "03-后续修改与维护/05-质量审核与回归验证.md",
+    "03-后续修改与维护/04-改 Page 与 Block.md",
+    "03-后续修改与维护/03-改 Component.md",
+    "03-后续修改与维护/02-改 CSS 和 Token.md",
+    "03-后续修改与维护/01-先判断应该改哪一层.md",
+    "02-从 0 构建资源接入/03-抽取 Component 资源.md",
+    "02-从 0 构建资源接入/02-从设计输入到资源层的完整路径.md",
+    "02-从 0 构建资源接入/01-MCP准备.md",
+    "02-从 0 构建资源接入/06-生成 Resource Layer 索引.md",
+    "04-参考资料",
+    "03-后续修改与维护",
+    "02-从 0 构建资源接入",
+    "01-认识 Skill",
+    "01-架构总览/02-shadcn"
   ]
 }
