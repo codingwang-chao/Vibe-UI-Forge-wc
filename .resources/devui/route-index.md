@@ -79,3 +79,13 @@ devui-playground/src/styles/devui-tokens.css
 ```
 
 旧 `(skill)MiniDevUI` 中的 layout、slot、block 文档只作为语义参考，不直接作为当前源码真值。
+
+---
+
+## 4. 已沉淀页面模板
+
+| 模板 | Storybook | 页面类型 | 组合资源 |
+|---|---|---|---|
+| DevOps 工作项列表页 | `Pages/MiniDevUI/DevOpsWorkItemList` | `table-page` | `TopNav` + `ToolchainSidebar` + `BreadcrumbTabsHeader` + `TableBlock` |
+
+生成同类页面时，页面模板层只负责组合这些小颗粒组件；不要把 `top-nav`、`toolchain-sidebar`、`breadcrumb-tabs-header` 的 DOM 复制进页面文件。

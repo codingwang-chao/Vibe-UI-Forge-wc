@@ -69,6 +69,73 @@
       "dependencies": []
     },
     {
+      "id": "top-nav",
+      "name": "TopNav",
+      "pageType": "table-page",
+      "description": "企业控制台顶部全局导航，承载品牌、地域、全局菜单、通知和用户入口。",
+      "doc": "block/top-nav.md",
+      "source": {
+        "kind": "figma-mcp",
+        "fileKey": "VBxWjuXDcxprCHcUFKNF81",
+        "nodeId": "10673:14822",
+        "nodeName": "顶部导航栏"
+      },
+      "files": [
+        "src/components/ui/top-nav/top-nav.tsx",
+        "src/components/ui/top-nav/top-nav.css"
+      ],
+      "stories": [
+        "src/components/ui/top-nav/top-nav.stories.tsx"
+      ],
+      "dependencies": [
+        "button"
+      ]
+    },
+    {
+      "id": "toolchain-sidebar",
+      "name": "ToolchainSidebar",
+      "pageType": "table-page",
+      "description": "DevOps 工具链侧边导航，包含项目选择、一级/二级导航和收起入口。",
+      "doc": "block/toolchain-sidebar.md",
+      "source": {
+        "kind": "figma-mcp",
+        "fileKey": "VBxWjuXDcxprCHcUFKNF81",
+        "nodeId": "10673:14824",
+        "nodeName": "工具链专用导航"
+      },
+      "files": [
+        "src/components/ui/toolchain-sidebar/toolchain-sidebar.tsx",
+        "src/components/ui/toolchain-sidebar/toolchain-sidebar.css"
+      ],
+      "stories": [
+        "src/components/ui/toolchain-sidebar/toolchain-sidebar.stories.tsx"
+      ],
+      "dependencies": [
+        "button"
+      ]
+    },
+    {
+      "id": "breadcrumb-tabs-header",
+      "name": "BreadcrumbTabsHeader",
+      "pageType": "table-page",
+      "description": "内容区二级头部，组合面包屑与页内横向 Tab。",
+      "doc": "block/breadcrumb-tabs-header.md",
+      "source": {
+        "kind": "figma-mcp",
+        "fileKey": "VBxWjuXDcxprCHcUFKNF81",
+        "nodeId": "10673:14827",
+        "nodeName": "Frame 227"
+      },
+      "files": [
+        "src/components/ui/breadcrumb-tabs-header/breadcrumb-tabs-header.tsx",
+        "src/components/ui/breadcrumb-tabs-header/breadcrumb-tabs-header.css"
+      ],
+      "stories": [
+        "src/components/ui/breadcrumb-tabs-header/breadcrumb-tabs-header.stories.tsx"
+      ],
+      "dependencies": []
+    },
+    {
       "id": "subheader",
       "name": "Subheader",
       "pageType": "form-page",

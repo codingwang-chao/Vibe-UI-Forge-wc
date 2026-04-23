@@ -1,0 +1,213 @@
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 40px;
+  min-height: 40px;
+  padding: 0 8px;
+  background: var(--devui-base-bg, #ffffff);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+  color: var(--devui-text, #252b3a);
+  font-family: var(--devui-font-family-sans, "Noto Sans SC", Helvetica, Arial, sans-serif);
+}
+
+.top-nav__left,
+.top-nav__right,
+.top-nav__brand,
+.top-nav__region,
+.top-nav__items,
+.top-nav__item {
+  display: inline-flex;
+  align-items: center;
+}
+
+.top-nav__left {
+  min-width: 0;
+  gap: 0;
+}
+
+.top-nav__right {
+  flex: 0 0 auto;
+  gap: 4px;
+  padding-right: 4px;
+}
+
+.top-nav__menu,
+.top-nav__icon-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  color: var(--devui-icon-text, #71757f);
+  cursor: pointer;
+  padding: 0;
+}
+
+.top-nav__menu {
+  flex-direction: column;
+  gap: 3px;
+}
+
+.top-nav__menu span {
+  width: 14px;
+  height: 1px;
+  background: currentColor;
+}
+
+.top-nav__brand {
+  height: 32px;
+  gap: 6px;
+  padding: 0 8px 0 2px;
+  white-space: nowrap;
+}
+
+.top-nav__brand-mark {
+  position: relative;
+  width: 18px;
+  height: 18px;
+}
+
+.top-nav__brand-mark::before,
+.top-nav__brand-mark::after {
+  position: absolute;
+  inset: 2px;
+  border-radius: 50% 50% 45% 45%;
+  background: #c7000b;
+  content: "";
+}
+
+.top-nav__brand-mark::after {
+  inset: 7px 1px 1px;
+  border-radius: 6px;
+  background: #f66f6a;
+}
+
+.top-nav__brand-text,
+.top-nav__console {
+  color: var(--devui-text, #252b3a);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.top-nav__divider {
+  width: 1px;
+  height: 24px;
+  background: var(--devui-dividing-line, #dfe1e6);
+}
+
+.top-nav__console,
+.top-nav__region,
+.top-nav__item {
+  height: 32px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.top-nav__console {
+  padding: 4px 10px;
+}
+
+.top-nav__region {
+  gap: 4px;
+  padding: 5px 8px;
+  color: #000000;
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.top-nav__location-dot {
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--devui-text, #252b3a);
+  border-radius: 50%;
+}
+
+.top-nav__items {
+  gap: 8px;
+  margin-left: 2px;
+}
+
+.top-nav__item {
+  gap: 4px;
+  border-radius: 2px;
+  padding: 4px 8px;
+  color: var(--devui-text, #252b3a);
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.top-nav__item:hover,
+.top-nav__console:hover,
+.top-nav__region:hover,
+.top-nav__icon-action:hover,
+.top-nav__menu:hover {
+  background: var(--devui-list-item-hover-bg, #f2f5fc);
+}
+
+.top-nav__product-icon {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  background: var(--devui-brand-active, #5e7ce0);
+  box-shadow: inset 0 -5px 0 rgba(255, 255, 255, 0.28);
+}
+
+.top-nav__product-icon--home {
+  background: #5e7ce0;
+}
+
+.top-nav__product-icon--workbench {
+  background: #6d8ef2;
+}
+
+.top-nav__product-icon--insight {
+  background: #49a7ea;
+}
+
+.top-nav__product-icon--service {
+  background: #43bf9b;
+}
+
+.top-nav__product-icon--mirror {
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #e84d5b, #5e7ce0, #43bf9b, #e84d5b);
+}
+
+.top-nav .mini-devui-button__icon-svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+}
+
+.top-nav__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin-left: 4px;
+  border-radius: 999px;
+  background: var(--devui-brand-active, #5e7ce0);
+  color: var(--devui-light-text, #ffffff);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+@media (max-width: 1280px) {
+  .top-nav__items {
+    gap: 2px;
+  }
+
+  .top-nav__item {
+    padding-inline: 6px;
+  }
+}

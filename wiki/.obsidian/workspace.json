@@ -185,6 +185,7 @@
   },
   "active": "1aaaca5a07c5c3a3",
   "lastOpenFiles": [
+    "00 | Design System Skill 全局概览.md",
     "00-快速入口.md",
     "01-认识 Skill/02-Design system skill简介.md",
     "01-认识 Skill/01-为什么是react + markdown?.md",
@@ -210,7 +211,6 @@
     "02-从 0 构建资源接入/03-抽取 Component 资源.md",
     "02-从 0 构建资源接入/02-从设计输入到资源层的完整路径.md",
     "02-从 0 构建资源接入/01-MCP准备.md",
-    "02-从 0 构建资源接入/06-生成 Resource Layer 索引.md",
     "04-参考资料",
     "03-后续修改与维护",
     "02-从 0 构建资源接入",

@@ -195,6 +195,30 @@
       "stories": "src/components/ui/toolbar-block/toolbar-block.stories.tsx"
     },
     {
+      "id": "top-nav",
+      "name": "TopNav",
+      "path": "src/components/ui/top-nav",
+      "export": "TopNav",
+      "stories": "src/components/ui/top-nav/top-nav.stories.tsx",
+      "spec": ".resources/devui/block/top-nav.md"
+    },
+    {
+      "id": "toolchain-sidebar",
+      "name": "ToolchainSidebar",
+      "path": "src/components/ui/toolchain-sidebar",
+      "export": "ToolchainSidebar",
+      "stories": "src/components/ui/toolchain-sidebar/toolchain-sidebar.stories.tsx",
+      "spec": ".resources/devui/block/toolchain-sidebar.md"
+    },
+    {
+      "id": "breadcrumb-tabs-header",
+      "name": "BreadcrumbTabsHeader",
+      "path": "src/components/ui/breadcrumb-tabs-header",
+      "export": "BreadcrumbTabsHeader",
+      "stories": "src/components/ui/breadcrumb-tabs-header/breadcrumb-tabs-header.stories.tsx",
+      "spec": ".resources/devui/block/breadcrumb-tabs-header.md"
+    },
+    {
       "id": "tree-nav",
       "name": "TreeNav",
       "path": "src/components/ui/tree-nav",
