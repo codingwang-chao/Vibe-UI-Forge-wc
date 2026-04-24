@@ -37,6 +37,27 @@
       "stories": "src/component/Switch/Switch.stories.tsx"
     },
     {
+      "id": "slider-base",
+      "name": "SliderBase",
+      "path": "src/component/Slider",
+      "export": "SliderBase",
+      "stories": "src/component/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "slider-with-icons",
+      "name": "SliderWithIcons",
+      "path": "src/component/Slider",
+      "export": "SliderWithIcons",
+      "stories": "src/component/Slider/Slider.stories.tsx"
+    },
+    {
+      "id": "slider-with-scale",
+      "name": "SliderWithScale",
+      "path": "src/component/Slider",
+      "export": "SliderWithScale",
+      "stories": "src/component/Slider/Slider.stories.tsx"
+    },
+    {
       "id": "clover-week-panel",
       "name": "CloverWeekPanel",
       "path": "src/component/CloverWeekPanel",
@@ -91,6 +112,13 @@
       "path": "src/component/Divider",
       "export": "Divider",
       "stories": "src/component/Divider/Divider.stories.tsx"
+    },
+    {
+      "id": "card",
+      "name": "Card",
+      "path": "src/component/Card",
+      "export": "Card",
+      "stories": "src/component/Card/Card.stories.tsx"
     }
   ]
 }

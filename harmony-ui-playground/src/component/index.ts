@@ -12,6 +12,23 @@ export type { ButtonProps, ButtonSize, ButtonVariant } from "./Button"
 export { Checkbox } from "./Checkbox"
 export type { CheckboxProps } from "./Checkbox"
 
+export {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./Card"
+export type {
+  CardContentProps,
+  CardDescriptionProps,
+  CardFooterProps,
+  CardHeaderProps,
+  CardProps,
+  CardTitleProps,
+} from "./Card"
+
 export { CloverWeekPanel } from "./CloverWeekPanel"
 export type {
   CloverDayStatus,
@@ -77,6 +94,13 @@ export type {
   SubHeaderProps,
   SubHeaderRightMode,
 } from "./SubHeader"
+
+export { SliderBase, SliderWithIcons, SliderWithScale } from "./Slider"
+export type {
+  SliderBaseProps,
+  SliderWithIconsProps,
+  SliderWithScaleProps,
+} from "./Slider"
 
 export { Switch } from "./Switch"
 export type { SwitchProps } from "./Switch"
