@@ -79,6 +79,9 @@ export const PublicComponents = {
   CloverIcon,
 }
 
+export { SceneModeCard } from "./SceneModeCard"
+export type { SceneModeCardProps, SceneModeCardSize } from "./SceneModeCard"
+
 export { ServiceCard, ServiceCardItem, ServiceCardStatus } from "./ServiceCard"
 export type {
   ServiceCardItemProps,
