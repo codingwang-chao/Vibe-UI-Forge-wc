@@ -147,6 +147,13 @@
       "path": "src/component/SceneModeCard",
       "export": "SceneModeCard",
       "stories": "src/component/SceneModeCard/SceneModeCard.stories.tsx"
+    },
+    {
+      "id": "pixso-content-subheading-section",
+      "name": "PixsoContentSubheadingSection",
+      "path": "src/component/PixsoContentSubheadingSection",
+      "export": "PixsoContentSubheadingSection",
+      "stories": "src/component/PixsoContentSubheadingSection/PixsoContentSubheadingSection.stories.tsx"
     }
   ]
 }

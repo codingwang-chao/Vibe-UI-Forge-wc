@@ -1,0 +1,292 @@
+/*
+ * Pixso 3286:12399 — Section_3286_12399.
+ * Layout is intentionally absolute because the design is a composed specimen
+ * board with independent state groups rather than one flowing list.
+ */
+
+.pixso-content-subheading-section {
+  --pcs-ink: rgba(0, 0, 0, 0.9);
+  --pcs-secondary: rgba(0, 0, 0, 0.55);
+  --pcs-tertiary: rgba(0, 0, 0, 0.42);
+  --pcs-blue: #0a59f7;
+  --pcs-purple: #7d4cff;
+  --pcs-select-bg: rgba(0, 0, 0, 0.047);
+  --pcs-select-bg-hover: rgba(0, 0, 0, 0.08);
+  --pcs-focus-ring: rgba(25, 137, 250, 0.45);
+
+  position: relative;
+  box-sizing: border-box;
+  width: 744px;
+  height: 522px;
+  background: #fff;
+  color: var(--pcs-ink);
+  user-select: none;
+  font-family:
+    "HarmonyOS Sans",
+    "HarmonyOS Sans SC",
+    "HarmonyHeiTi",
+    -apple-system,
+    BlinkMacSystemFont,
+    "PingFang SC",
+    "Microsoft YaHei",
+    sans-serif;
+}
+
+.pixso-content-subheading-section *,
+.pixso-content-subheading-section *::before,
+.pixso-content-subheading-section *::after {
+  box-sizing: border-box;
+}
+
+.pixso-content-subheading-section button {
+  font: inherit;
+}
+
+.pixso-content-subheading-section button:focus-visible {
+  outline: 2px solid var(--pcs-focus-ring);
+  outline-offset: 2px;
+}
+
+.pixso-content-subheading-section__header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 312px;
+  height: 42px;
+}
+
+.pixso-content-subheading-section__heading-copy {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.pixso-content-subheading-section__heading-copy h2,
+.pixso-content-subheading-section__heading-copy p,
+.pixso-content-subheading-section__card-title,
+.pixso-content-subheading-section__card-subtitle,
+.pixso-content-subheading-section__footer-copy h3,
+.pixso-content-subheading-section__footer-copy p {
+  margin: 0;
+}
+
+.pixso-content-subheading-section__heading-copy h2 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+.pixso-content-subheading-section__heading-copy p {
+  margin-top: -1px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+  color: var(--pcs-secondary);
+}
+
+.pixso-content-subheading-section__header-action,
+.pixso-content-subheading-section__action {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  color: var(--pcs-blue);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+.pixso-content-subheading-section__header-action {
+  position: absolute;
+  left: 285px;
+  top: 8px;
+}
+
+.pixso-content-subheading-section__header-action:disabled,
+.pixso-content-subheading-section__action:disabled,
+.pixso-content-subheading-section__select:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.pixso-content-subheading-section__card {
+  position: absolute;
+  border: 2px dashed var(--pcs-purple);
+  border-radius: 4px;
+  background: #fff;
+}
+
+.pixso-content-subheading-section__card--content {
+  left: 0;
+  top: 145px;
+  width: 206px;
+  height: 376px;
+}
+
+.pixso-content-subheading-section__card-title {
+  position: absolute;
+  left: 18px;
+  top: 40px;
+  width: 166px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: var(--pcs-ink);
+}
+
+.pixso-content-subheading-section__card-subtitle {
+  position: absolute;
+  left: 18px;
+  top: 132px;
+  width: 130px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+  color: var(--pcs-secondary);
+}
+
+.pixso-content-subheading-section__select {
+  position: absolute;
+  left: 18px;
+  top: 209px;
+  height: 38px;
+  min-width: 101px;
+  border: 0;
+  border-radius: 19px;
+  padding: 0 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--pcs-select-bg);
+  color: var(--pcs-ink);
+  cursor: pointer;
+}
+
+.pixso-content-subheading-section__select:hover:not(:disabled) {
+  background: var(--pcs-select-bg-hover);
+}
+
+.pixso-content-subheading-section__select span {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.pixso-content-subheading-section__chevron {
+  color: var(--pcs-ink);
+  flex: 0 0 auto;
+}
+
+.pixso-content-subheading-section__footer-copy {
+  position: absolute;
+  left: 18px;
+  top: 306px;
+  width: 170px;
+}
+
+.pixso-content-subheading-section__footer-copy h3 {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+.pixso-content-subheading-section__footer-copy p {
+  margin-top: -1px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0;
+  color: var(--pcs-secondary);
+}
+
+.pixso-content-subheading-section__card--operations {
+  left: 302px;
+  top: 145px;
+  width: 209px;
+  height: 365px;
+}
+
+.pixso-content-subheading-section__more {
+  position: absolute;
+  left: 140px;
+  top: 48px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--pcs-secondary);
+}
+
+.pixso-content-subheading-section__more span {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.pixso-content-subheading-section__more-chevron,
+.pixso-content-subheading-section__up-chevron {
+  color: rgba(0, 0, 0, 0.28);
+}
+
+.pixso-content-subheading-section__up {
+  position: absolute;
+  left: 170px;
+  top: 141px;
+}
+
+.pixso-content-subheading-section__inline-icons {
+  position: absolute;
+  left: 90px;
+  top: 223px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.pixso-content-subheading-section__refresh {
+  display: block;
+  color: rgba(0, 0, 0, 0.82);
+}
+
+.pixso-content-subheading-section__action {
+  position: absolute;
+  left: 164px;
+  top: 316px;
+}
+
+.pixso-content-subheading-section__card--icons {
+  left: 605px;
+  top: 145px;
+  width: 138px;
+  height: 184px;
+  padding-top: 17px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 27px;
+}
+
+.pixso-content-subheading-section__refresh-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  width: 100%;
+  padding-right: 19px;
+}
+
+.pixso-content-subheading-section__refresh-row[data-count="2"] {
+  padding-right: 18px;
+}
+
+.pixso-content-subheading-section__refresh-row[data-count="3"] {
+  padding-right: 19px;
+}

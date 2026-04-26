@@ -3,6 +3,7 @@ import { AppIcon } from "./AppIcon"
 import { Avatar } from "./Avatar"
 import { CloverIcon } from "./CloverIcon"
 import { IconButton } from "./IconButton"
+import { PixsoContentSubheadingSection } from "./PixsoContentSubheadingSection"
 import { StatusBar } from "./StatusBar"
 import { WifiIcon } from "./WifiIcon"
 
@@ -77,6 +78,7 @@ export const PublicComponents = {
   StatusBar,
   WifiIcon,
   CloverIcon,
+  PixsoContentSubheadingSection,
 }
 
 export { SceneModeCard } from "./SceneModeCard"
@@ -87,6 +89,9 @@ export type { FeaturePromoCardProps } from "./FeaturePromoCard"
 
 export { PixsoListRowMedium } from "./PixsoListRowMedium"
 export type { PixsoListRowMediumProps } from "./PixsoListRowMedium"
+
+export { PixsoContentSubheadingSection } from "./PixsoContentSubheadingSection"
+export type { PixsoContentSubheadingSectionProps } from "./PixsoContentSubheadingSection"
 
 export { ScrollBar } from "./ScrollBar"
 export type { ScrollBarProps, ScrollBarState } from "./ScrollBar"
