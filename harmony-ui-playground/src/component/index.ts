@@ -1,6 +1,7 @@
 import { AiBottomBar } from "./AiBottomBar"
 import { AppIcon } from "./AppIcon"
 import { Avatar } from "./Avatar"
+import { BatteryIcon } from "./BatteryIcon"
 import { CloverIcon } from "./CloverIcon"
 import { IconButton } from "./IconButton"
 import { PixsoContentSubheadingSection } from "./PixsoContentSubheadingSection"
@@ -70,10 +71,18 @@ export type { StatusBarMode, StatusBarProps } from "./StatusBar"
 export { WifiIcon } from "./WifiIcon"
 export type { WifiIconMode, WifiIconProps } from "./WifiIcon"
 
+export { BatteryIcon } from "./BatteryIcon"
+export type {
+  BatteryIconMode,
+  BatteryIconProps,
+  BatteryIconVariant,
+} from "./BatteryIcon"
+
 export const PublicComponents = {
   AiBottomBar,
   AppIcon,
   Avatar,
+  BatteryIcon,
   IconButton,
   StatusBar,
   WifiIcon,

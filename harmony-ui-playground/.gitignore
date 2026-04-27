@@ -13,6 +13,9 @@ storybook-static
 dist-ssr
 *.local
 
+# Visual regression / agent artifacts
+.artifacts/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -1,0 +1,111 @@
+/*
+ * BatteryIcon — Pixso 3195:10644
+ * 1:1 量化规格（基准 height=12px）：
+ *   主体（body）24 x 12 px，圆角 3.5px，描边 1px
+ *   电極（cap）1.5 x 4 px，圆角 1px，距主体 1px
+ *   "100" 文本 HarmonyOS Sans Bold 7px，行高 1，字间距 0
+ * 三变体：outline（仅描边）/ filled（描边 + 内填充条）/ solid（实心填充）
+ */
+.pub-battery {
+  --pub-battery-scale: 1;
+  --pub-battery-fill: 100%;
+  --pub-battery-color: rgba(0, 0, 0, 0.9);
+  --pub-battery-track: rgba(0, 0, 0, 0.4);
+  --pub-battery-label: rgba(0, 0, 0, 0.9);
+  --pub-battery-label-size: calc(7px * var(--pub-battery-scale));
+  display: inline-flex;
+  align-items: center;
+  gap: calc(1px * var(--pub-battery-scale));
+  height: calc(12px * var(--pub-battery-scale));
+  font-family:
+    "HarmonyOS Sans", "HarmonyOS Sans SC", "PingFang SC",
+    -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  line-height: 1;
+  user-select: none;
+}
+
+.pub-battery--dark {
+  --pub-battery-color: rgba(255, 255, 255, 0.95);
+  --pub-battery-track: rgba(255, 255, 255, 0.55);
+  --pub-battery-label: rgba(255, 255, 255, 0.95);
+}
+
+.pub-battery__body {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(24px * var(--pub-battery-scale));
+  height: calc(12px * var(--pub-battery-scale));
+  border-radius: calc(3.5px * var(--pub-battery-scale));
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.pub-battery__cap {
+  display: inline-block;
+  width: calc(1.5px * var(--pub-battery-scale));
+  height: calc(4px * var(--pub-battery-scale));
+  border-radius: calc(1px * var(--pub-battery-scale));
+  background: var(--pub-battery-track);
+}
+
+.pub-battery__label {
+  position: relative;
+  z-index: 1;
+  font-size: var(--pub-battery-label-size);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+  color: var(--pub-battery-label);
+}
+
+.pub-battery__bar {
+  position: absolute;
+  top: calc(1.5px * var(--pub-battery-scale));
+  bottom: calc(1.5px * var(--pub-battery-scale));
+  left: calc(1.5px * var(--pub-battery-scale));
+  width: calc(
+    (24px - 3px) * var(--pub-battery-scale) * (var(--pub-battery-fill) / 100%)
+  );
+  border-radius: calc(2px * var(--pub-battery-scale));
+  background: var(--pub-battery-track);
+  opacity: 0.35;
+}
+
+/* outline：仅描边，文字在内部 */
+.pub-battery--outline .pub-battery__body {
+  border: calc(1px * var(--pub-battery-scale)) solid var(--pub-battery-track);
+  background: transparent;
+}
+
+/* filled：描边 + 内填充条 */
+.pub-battery--filled .pub-battery__body {
+  border: calc(1px * var(--pub-battery-scale)) solid var(--pub-battery-track);
+  background: transparent;
+}
+
+/* solid：实心填充，文字反白；电極随之实心 */
+.pub-battery--solid .pub-battery__body {
+  border: calc(1px * var(--pub-battery-scale)) solid var(--pub-battery-color);
+  background: var(--pub-battery-color);
+}
+
+.pub-battery--solid .pub-battery__label {
+  color: var(--pub-battery-color);
+  filter: invert(1);
+}
+
+.pub-battery--solid.pub-battery--light .pub-battery__label {
+  color: #ffffff;
+  filter: none;
+}
+
+.pub-battery--solid.pub-battery--dark .pub-battery__label {
+  color: #111111;
+  filter: none;
+}
+
+.pub-battery--solid .pub-battery__cap {
+  background: var(--pub-battery-color);
+}

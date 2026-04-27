@@ -154,6 +154,13 @@
       "path": "src/component/PixsoContentSubheadingSection",
       "export": "PixsoContentSubheadingSection",
       "stories": "src/component/PixsoContentSubheadingSection/PixsoContentSubheadingSection.stories.tsx"
+    },
+    {
+      "id": "battery-icon",
+      "name": "BatteryIcon",
+      "path": "src/component/BatteryIcon",
+      "export": "BatteryIcon",
+      "stories": "src/component/BatteryIcon/BatteryIcon.stories.tsx"
     }
   ]
 }
